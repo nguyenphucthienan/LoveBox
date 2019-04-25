@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
 
+import { SharedModule } from '../shared/shared.module';
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -22,7 +24,8 @@ const jwtOptions = {
     HttpClientModule,
     RouterModule.forChild([]),
     BrowserAnimationsModule,
-    JwtModule.forRoot(jwtOptions)
+    JwtModule.forRoot(jwtOptions),
+    SharedModule
   ],
   providers: []
 })
