@@ -38,16 +38,16 @@ export class AuthService {
   }
 
   register(user: User) {
-    return this.http.post(`${this.AUTH_URL}/register`, user);
+    return this.http.post(`${this.AUTH_URL}/sign-up`, user);
   }
 
-  login(model: any) {
-    return this.http.post(`${this.AUTH_URL}/login`, model)
+  login(model: { usernameOrEmail: string, password: string }) {
+    return this.http.post(`${this.AUTH_URL}/sign-in`, model)
       .pipe(
-        map(({ token }: any) => {
-          if (token) {
-            localStorage.setItem('token', token);
-            this.changeDecodedToken(token);
+        map(({ accessToken }: any) => {
+          if (accessToken) {
+            localStorage.setItem('token', accessToken);
+            this.changeDecodedToken(accessToken);
           }
         })
       );
