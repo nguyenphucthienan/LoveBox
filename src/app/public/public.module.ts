@@ -5,12 +5,14 @@ import { SharedModule } from '../shared/shared.module';
 import { HeaderComponent } from './components/header/header.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AboutComponent
   ],
   imports: [
     SharedModule,
