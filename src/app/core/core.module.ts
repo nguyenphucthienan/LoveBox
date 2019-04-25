@@ -6,6 +6,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
 
 import { SharedModule } from '../shared/shared.module';
+import { AuthService } from './services/auth.service';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -27,7 +28,9 @@ const jwtOptions = {
     JwtModule.forRoot(jwtOptions),
     SharedModule
   ],
-  providers: []
+  providers: [
+    AuthService
+  ]
 })
 export class CoreModule {
 
