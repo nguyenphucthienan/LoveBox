@@ -10,12 +10,16 @@ import {
   UserProfileQuestionsTabComponent,
 } from './components/user-profile-questions-tab/user-profile-questions-tab.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import {
+  UserQuestionsAnswerQuestionComponent,
+} from './components/user-questions-answer-question/user-questions-answer-question.component';
 import { UserQuestionsListComponent } from './components/user-questions-list/user-questions-list.component';
 import {
   UserQuestionsQuestionCardComponent,
 } from './components/user-questions-question-card/user-questions-question-card.component';
 import { UserQuestionsComponent } from './components/user-questions/user-questions.component';
 import { MyUserResolver } from './resolvers/my-user.resolver';
+import { SingleQuestionResolver } from './resolvers/single-question.resolver';
 import { UserResolver } from './resolvers/user.resolver';
 import { UserRoutingModule } from './user-routing.module';
 
@@ -28,7 +32,8 @@ import { UserRoutingModule } from './user-routing.module';
     UserProfileQuestionCardComponent,
     UserQuestionsComponent,
     UserQuestionsListComponent,
-    UserQuestionsQuestionCardComponent
+    UserQuestionsQuestionCardComponent,
+    UserQuestionsAnswerQuestionComponent
   ],
   imports: [
     SharedModule,
@@ -36,7 +41,8 @@ import { UserRoutingModule } from './user-routing.module';
   ],
   providers: [
     MyUserResolver,
-    UserResolver
+    UserResolver,
+    SingleQuestionResolver
   ]
 })
 export class UserModule { }

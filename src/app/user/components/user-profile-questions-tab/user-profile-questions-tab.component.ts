@@ -15,7 +15,7 @@ export class UserProfileQuestionsTabComponent implements OnInit {
 
   @Input() user: User;
 
-  questionForm: FormGroup;
+  askForm: FormGroup;
   singleQuestions: SingleQuestion[];
   pagination: Pagination;
 
@@ -26,7 +26,7 @@ export class UserProfileQuestionsTabComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.questionForm = this.fb.group({
+    this.askForm = this.fb.group({
       questionText: ['', [Validators.required, Validators.maxLength(200)]]
     });
 
@@ -49,18 +49,18 @@ export class UserProfileQuestionsTabComponent implements OnInit {
   }
 
   getQuestionTextLength() {
-    return this.questionForm.controls.questionText.value
-      && 200 - this.questionForm.controls.questionText.value.length
+    return this.askForm.controls.questionText.value
+      && 200 - this.askForm.controls.questionText.value.length
       || 200;
   }
 
   sendQuestion() {
     this.singleQuestionService.createSingleQuestion(
       this.user.id,
-      this.questionForm.controls.questionText.value
+      this.askForm.controls.questionText.value
     ).subscribe(question => {
       this.alertService.success('Ask question successfully');
-      this.questionForm.reset();
+      this.askForm.reset();
     });
   }
 
