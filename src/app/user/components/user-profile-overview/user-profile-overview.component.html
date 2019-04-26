@@ -1,0 +1,17 @@
+<div class="text-center">
+  <img [src]="user.photoUrl || defaultPhotoUrl" class="profile-img">
+</div>
+<div class="text-center mt-3">
+  <h5 class="h5">{{ user.username }}</h5>
+  <p>{{ user.firstName }} {{ user.lastName }}</p>
+  <p>
+    <mdb-icon fas icon="magic" class="mr-1"></mdb-icon>Following: {{ user.followingCount }}
+  </p>
+  <p>
+    <mdb-icon fas icon="magic" class="mr-1"></mdb-icon>Followers: {{ user.followersCount }}
+  </p>
+  <p *ngIf="user.moodMessage">{{ user.moodMessage }}</p>
+  <button mdbBtn type="button" size="sm" color="pink" mdbWavesEffect>
+    <mdb-icon fas icon="user-plus" class="mr-1"></mdb-icon>Follow
+  </button>
+</div>

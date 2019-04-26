@@ -7,6 +7,7 @@ export const environment = {
   apiUrl: 'http://localhost:8080/api',
   whitelistedDomains: ['localhost:8080'],
   blacklistedRoutes: ['localhost:8080/api/auth'],
+  defaultUserPhotoUrl: './assets/users/default.png'
 };
 
 /*

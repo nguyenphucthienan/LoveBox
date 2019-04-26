@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthRoleGuard } from './guards/auth-role.guard';
 import { AlertService } from './services/alert.service';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -41,8 +42,9 @@ const toastrOptions = {
   ],
   providers: [
     AuthService,
+    AuthRoleGuard,
     AlertService,
-    AuthRoleGuard
+    UserService
   ]
 })
 export class CoreModule {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/core/models/user.interface';
 
 @Component({
@@ -13,12 +14,15 @@ export class UserProfileComponent implements OnInit {
     bffDetail: 'BFF_DETAIL',
   };
 
-  userInfo: User;
+  user: User;
   currentTab: string = this.tabNames.questions;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.subscribe(data => {
+      this.user = data.user;
+    });
   }
 
   selectTab(tabName: string) {
