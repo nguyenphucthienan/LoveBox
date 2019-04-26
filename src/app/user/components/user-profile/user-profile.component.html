@@ -2,16 +2,25 @@
   <div class="row">
     <div class="col-lg-3 mt-3">
       <app-user-profile-overview [user]="user"></app-user-profile-overview>
+      <div class="text-center">
+        <button mdbBtn type="button" size="sm" color="pink" mdbWavesEffect>
+          <mdb-icon fas icon="user-plus" class="mr-1"></mdb-icon>Follow
+        </button>
+      </div>
     </div>
     <div class="col-lg-9 mt-3">
-      <div class="search-container container-fluid">
-        <nav class="nav nav-pills nav-fill">
+      <div class="container-fluid mt-3">
+        <nav class="nav nav-pills nav-fill mt-3">
           <a class="nav-item nav-link" [class.active]="currentTab === tabNames.questions"
             (click)="selectTab(tabNames.questions)">Questions</a>
           <a class="nav-item nav-link" [class.active]="currentTab === tabNames.bffDetail"
             (click)="selectTab(tabNames.bffDetail)">BFF Detail</a>
         </nav>
-        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider mb-5"></div>
+        <div *ngIf="currentTab === tabNames.questions">
+          <app-user-question-textarea></app-user-question-textarea>
+        </div>
+        <div></div>
       </div>
     </div>
   </div>
