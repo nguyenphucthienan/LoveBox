@@ -11,7 +11,11 @@
           <a class="nav-item nav-link" [class.active]="currentTab === tabNames.bffDetail"
             (click)="selectTab(tabNames.bffDetail)">BFF Detail</a>
         </nav>
-        <div class="dropdown-divider"></div>
+        <div class="dropdown-divider mb-5"></div>
+        <div *ngIf="currentTab === tabNames.questions">
+        </div>
+        <div *ngIf="currentTab === tabNames.bffDetail">
+        </div>
       </div>
     </div>
   </div>

@@ -20,7 +20,8 @@
         <div *ngIf="currentTab === tabNames.questions">
           <app-user-profile-questions-tab [user]="user"></app-user-profile-questions-tab>
         </div>
-        <div></div>
+        <div *ngIf="currentTab === tabNames.bffDetail">
+        </div>
       </div>
     </div>
   </div>

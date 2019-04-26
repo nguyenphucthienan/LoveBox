@@ -2,38 +2,27 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Pagination } from 'src/app/core/models/pagination.interface';
 import { SingleQuestion } from 'src/app/core/models/single-question.interface';
 import { User } from 'src/app/core/models/user.interface';
-import { AlertService } from 'src/app/core/services/alert.service';
 import { SingleQuestionService } from 'src/app/core/services/single-question.service';
 
 @Component({
-  selector: 'app-user-profile-questions-tab',
-  templateUrl: './user-profile-questions-tab.component.html',
-  styleUrls: ['./user-profile-questions-tab.component.scss']
+  selector: 'app-user-questions-list',
+  templateUrl: './user-questions-list.component.html',
+  styleUrls: ['./user-questions-list.component.scss']
 })
-export class UserProfileQuestionsTabComponent implements OnInit {
+export class UserQuestionsListComponent implements OnInit {
 
   singleQuestions: SingleQuestion[];
   pagination: Pagination;
 
   @Input() user: User;
 
-  constructor(
-    private singleQuestionService: SingleQuestionService,
-    private alertService: AlertService
-  ) { }
+  constructor(   private singleQuestionService: SingleQuestionService) { }
 
   ngOnInit() {
-    this.singleQuestionService.getSingleQuestions(this.user.id, true)
+    this.singleQuestionService.getSingleQuestions(this.user.id, false)
       .subscribe((result: any) => {
         this.singleQuestions = result.content;
         this.pagination = result.pagination;
-      });
-  }
-
-  sendQuestion(questionText: string) {
-    this.singleQuestionService.createSingleQuestion(this.user.id, questionText)
-      .subscribe(question => {
-        this.alertService.success('Ask question successfully');
       });
   }
 

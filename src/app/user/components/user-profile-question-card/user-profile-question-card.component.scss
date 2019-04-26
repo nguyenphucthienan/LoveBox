@@ -2,8 +2,17 @@
   padding: 3px;
 }
 
+.card-body {
+  padding-bottom: 10px;
+}
+
 .question-text:hover {
   cursor: pointer;
+}
+
+.date-time-text {
+  font-size: 10px;
+  color: #888;
 }
 
 .fa.fa-heart,

@@ -10,6 +10,8 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserQuestionTextareaComponent } from './components/user-question-textarea/user-question-textarea.component';
 import { UserProfileQuestionsTabComponent } from './components/user-profile-questions-tab/user-profile-questions-tab.component';
 import { UserProfileQuestionCardComponent } from './components/user-profile-question-card/user-profile-question-card.component';
+import { UserQuestionsComponent } from './components/user-questions/user-questions.component';
+import { UserQuestionsListComponent } from './components/user-questions-list/user-questions-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { UserProfileQuestionCardComponent } from './components/user-profile-ques
     UserMeComponent,
     UserQuestionTextareaComponent,
     UserProfileQuestionsTabComponent,
-    UserProfileQuestionCardComponent
+    UserProfileQuestionCardComponent,
+    UserQuestionsComponent,
+    UserQuestionsListComponent
   ],
   imports: [
     SharedModule,
