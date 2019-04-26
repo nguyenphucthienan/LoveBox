@@ -8,13 +8,15 @@ import { MyUserResolver } from './resolvers/my-user.resolver';
 import { UserResolver } from './resolvers/user.resolver';
 import { UserRoutingModule } from './user-routing.module';
 import { UserQuestionTextareaComponent } from './components/user-question-textarea/user-question-textarea.component';
+import { UserProfileQuestionsTabComponent } from './components/user-profile-questions-tab/user-profile-questions-tab.component';
 
 @NgModule({
   declarations: [
     UserProfileComponent,
     UserProfileOverviewComponent,
     UserMeComponent,
-    UserQuestionTextareaComponent
+    UserQuestionTextareaComponent,
+    UserProfileQuestionsTabComponent
   ],
   imports: [
     SharedModule,

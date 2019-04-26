@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-question-textarea',
@@ -7,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserQuestionTextareaComponent implements OnInit {
 
+  @Output() send = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  sendQuestion(value: string) {
-    console.log('Question', value);
+  sendQuestion(question: string) {
+    this.send.emit(question);
   }
 
 }

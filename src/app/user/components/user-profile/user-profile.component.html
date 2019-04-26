@@ -9,8 +9,8 @@
       </div>
     </div>
     <div class="col-lg-9 mt-3">
-      <div class="container-fluid mt-3">
-        <nav class="nav nav-pills nav-fill mt-3">
+      <div class="container-fluid">
+        <nav class="nav nav-pills nav-fill">
           <a class="nav-item nav-link" [class.active]="currentTab === tabNames.questions"
             (click)="selectTab(tabNames.questions)">Questions</a>
           <a class="nav-item nav-link" [class.active]="currentTab === tabNames.bffDetail"
@@ -18,7 +18,7 @@
         </nav>
         <div class="dropdown-divider mb-5"></div>
         <div *ngIf="currentTab === tabNames.questions">
-          <app-user-question-textarea></app-user-question-textarea>
+          <app-user-profile-questions-tab [user]="user"></app-user-profile-questions-tab>
         </div>
         <div></div>
       </div>
