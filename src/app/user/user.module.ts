@@ -9,6 +9,7 @@ import { UserResolver } from './resolvers/user.resolver';
 import { UserRoutingModule } from './user-routing.module';
 import { UserQuestionTextareaComponent } from './components/user-question-textarea/user-question-textarea.component';
 import { UserProfileQuestionsTabComponent } from './components/user-profile-questions-tab/user-profile-questions-tab.component';
+import { UserProfileQuestionCardComponent } from './components/user-profile-question-card/user-profile-question-card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserProfileQuestionsTabComponent } from './components/user-profile-ques
     UserProfileOverviewComponent,
     UserMeComponent,
     UserQuestionTextareaComponent,
-    UserProfileQuestionsTabComponent
+    UserProfileQuestionsTabComponent,
+    UserProfileQuestionCardComponent
   ],
   imports: [
     SharedModule,

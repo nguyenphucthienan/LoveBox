@@ -13,6 +13,7 @@ export class SingleQuestionService {
 
   private readonly singleQuestionsUrl = `${environment.apiUrl}/users/{userId}/single-questions`;
   private readonly singleQuestionUrl = `${environment.apiUrl}/users/{userId}/single-questions/{id}`;
+  private readonly loveSingleQuestionUrl = `${environment.apiUrl}/users/{userId}/single-questions/{id}/love`;
 
   private readonly defaultPagination: Pagination = {
     page: 0,
@@ -49,8 +50,8 @@ export class SingleQuestionService {
     return this.http.delete<any>(url);
   }
 
-  loveOrUnloveSingleQuestion(userId: number, id: string): Observable<any> {
-    const url = UrlUtils.resolvePathVariables(this.singleQuestionUrl, { userId, id });
+  loveOrUnloveSingleQuestion(userId: number, id: number): Observable<any> {
+    const url = UrlUtils.resolvePathVariables(this.loveSingleQuestionUrl, { userId, id });
     return this.http.post<SingleQuestion>(url, null);
   }
 

@@ -1,9 +1,7 @@
 <app-user-question-textarea (send)="sendQuestion($event)"></app-user-question-textarea>
+<div class="dropdown-divider"></div>
 <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="1.5"
   [infiniteScrollThrottle]="50" (scrolled)="onScrollDown()" (scrolledUp)="onScrollUp()">
-
-  <div *ngFor="let singleQuestion of singleQuestions">
-    {{ singleQuestion | json }}
-  </div>
-
+  <app-user-profile-question-card *ngFor="let singleQuestion of singleQuestions" [singleQuestion]="singleQuestion">
+  </app-user-profile-question-card>
 </div>

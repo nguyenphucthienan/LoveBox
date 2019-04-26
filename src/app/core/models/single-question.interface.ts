@@ -9,5 +9,6 @@ export interface SingleQuestion {
   answerText: string;
   answered: boolean;
   answeredAt: Date;
+  loves: any[];
   loveCount: number;
 }

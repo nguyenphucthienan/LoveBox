@@ -1,0 +1,18 @@
+<div class="card d-flex h-100 mt-3 mb-3">
+  <div class="card-header indigo white-text">
+  </div>
+  <div class="card-body">
+    <p class="question-text"
+      [routerLink]="['/users', singleQuestion.answerer.id, 'single-questions', singleQuestion.id]">
+      <strong>{{ singleQuestion.questionText }}</strong>
+    </p>
+    <p>{{ singleQuestion.answerText }}</p>
+  </div>
+  <div class="card-footer">
+    <a type="button" class="btn-floating" (click)="loveQuestion()">
+      <i class="fa fa-lg fa-heart" [class.pink-color]="isLoved"></i>
+      {{ numOfLoves > 0 ? numOfLoves : null }}
+    </a>
+    <a type="button" class="btn-floating float-right"><i class="fa fa-lg fa-share-alt"></i></a>
+  </div>
+</div>
