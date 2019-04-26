@@ -1,3 +1,5 @@
-<div *ngFor="let singleQuestion of singleQuestions">
-  {{ singleQuestion | json }}
+<div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
+  (scrolled)="onScrollDown()">
+  <app-user-questions-question-card *ngFor="let singleQuestion of singleQuestions" [singleQuestion]="singleQuestion">
+  </app-user-questions-question-card>
 </div>

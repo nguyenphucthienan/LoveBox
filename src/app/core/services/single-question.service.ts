@@ -17,7 +17,7 @@ export class SingleQuestionService {
 
   private readonly defaultPagination: Pagination = {
     page: 0,
-    size: 10
+    size: 15
   };
 
   constructor(private http: HttpClient) { }

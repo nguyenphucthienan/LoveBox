@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pagination } from 'src/app/core/models/pagination.interface';
 import { SingleQuestion } from 'src/app/core/models/single-question.interface';
 import { User } from 'src/app/core/models/user.interface';
@@ -12,28 +13,27 @@ import { SingleQuestionService } from 'src/app/core/services/single-question.ser
 })
 export class UserProfileQuestionsTabComponent implements OnInit {
 
+  @Input() user: User;
+
+  questionForm: FormGroup;
   singleQuestions: SingleQuestion[];
   pagination: Pagination;
 
-  @Input() user: User;
-
   constructor(
+    private fb: FormBuilder,
     private singleQuestionService: SingleQuestionService,
     private alertService: AlertService
   ) { }
 
   ngOnInit() {
+    this.questionForm = this.fb.group({
+      questionText: ['', [Validators.required, Validators.maxLength(200)]]
+    });
+
     this.singleQuestionService.getSingleQuestions(this.user.id, true)
       .subscribe((result: any) => {
         this.singleQuestions = result.content;
         this.pagination = result.pagination;
-      });
-  }
-
-  sendQuestion(questionText: string) {
-    this.singleQuestionService.createSingleQuestion(this.user.id, questionText)
-      .subscribe(question => {
-        this.alertService.success('Ask question successfully');
       });
   }
 
@@ -46,6 +46,22 @@ export class UserProfileQuestionsTabComponent implements OnInit {
           this.pagination = result.pagination;
         });
     }
+  }
+
+  getQuestionTextLength() {
+    return this.questionForm.controls.questionText.value
+      && 200 - this.questionForm.controls.questionText.value.length
+      || 200;
+  }
+
+  sendQuestion() {
+    this.singleQuestionService.createSingleQuestion(
+      this.user.id,
+      this.questionForm.controls.questionText.value
+    ).subscribe(question => {
+      this.alertService.success('Ask question successfully');
+      this.questionForm.reset();
+    });
   }
 
 }

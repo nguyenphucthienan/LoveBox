@@ -1,0 +1,9 @@
+<div class="card d-flex h-100 mt-3 mb-3">
+  <div class="card-body">
+    <p class="question-text"
+      [routerLink]="['/users', singleQuestion.answerer.id, 'single-questions', singleQuestion.id, 'answer']">
+      <strong>{{ singleQuestion.questionText }}</strong>
+    </p>
+    <div class="date-time-text">{{ singleQuestion.createdAt | date:'medium' }}</div>
+  </div>
+</div>
