@@ -1,0 +1,20 @@
+<div class="container profile-container">
+  <div class="row">
+    <div class="col-lg-3 mt-3">
+      <div class="text-center">
+          <img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(50).jpg" class="profile-img">
+      </div>
+    </div>
+    <div class="col-lg-9 mt-3">
+      <div class="search-container container-fluid">
+        <nav class="nav nav-pills nav-fill">
+          <a class="nav-item nav-link" [class.active]="currentTab === tabNames.questions"
+            (click)="selectTab(tabNames.questions)">Questions</a>
+          <a class="nav-item nav-link" [class.active]="currentTab === tabNames.bffDetail"
+            (click)="selectTab(tabNames.bffDetail)">BFF Detail</a>
+        </nav>
+        <div class="dropdown-divider"></div>
+      </div>
+    </div>
+  </div>
+</div>

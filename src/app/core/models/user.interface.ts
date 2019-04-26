@@ -9,4 +9,6 @@ export interface User {
   photoUrl?: string;
   moodMessage?: string;
   roles?: Role[];
+  followingCount?: number;
+  followersCount?: number;
 }
