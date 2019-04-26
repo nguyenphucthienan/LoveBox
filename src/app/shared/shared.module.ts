@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [],
@@ -11,13 +12,15 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    InfiniteScrollModule,
   ],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot().ngModule,
+    InfiniteScrollModule
   ]
 })
 export class SharedModule { }
