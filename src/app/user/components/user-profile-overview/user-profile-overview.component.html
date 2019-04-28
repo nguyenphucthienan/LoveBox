@@ -5,7 +5,7 @@
         <img [src]="user.photoUrl || defaultPhotoUrl" class="img-fluid rounded-circle">
       </div>
       <div class="text-center mt-3">
-        <h5 class="h5"><strong>{{ user.username }}</strong></h5>
+        <h5 class="h5"><strong>@{{ user.username }}</strong></h5>
         <p>{{ user.firstName }} {{ user.lastName }}</p>
         <p>
           <mdb-icon fas icon="magic" class="mr-1"></mdb-icon>Following: {{ user.followingCount }}

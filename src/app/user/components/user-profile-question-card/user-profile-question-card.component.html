@@ -2,12 +2,20 @@
   <div class="card-header indigo white-text">
   </div>
   <div class="card-body">
-    <p class="question-text"
-      [routerLink]="['/users', singleQuestion.answerer.id, 'single-questions', singleQuestion.id]">
-      <strong>{{ singleQuestion.questionText }}</strong>
-    </p>
-    <p>{{ singleQuestion.answerText }}</p>
-    <div class="date-time-text">{{ singleQuestion.createdAt | date:'medium' }}</div>
+    <div class="d-flex flex-row align-items-center">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <img [src]="singleQuestion.answerer.photoUrl || defaultPhotoUrl" class="profile-img">
+        <strong>@{{ singleQuestion.answerer.username }}</strong>
+      </div>
+      <div class="ml-3">
+        <p class="question-text"
+          [routerLink]="['/users', singleQuestion.answerer.id, 'single-questions', singleQuestion.id]">
+          <strong>{{ singleQuestion.questionText }}</strong>
+        </p>
+        <p>{{ singleQuestion.answerText }}</p>
+        <div class="date-time-text">{{ singleQuestion.createdAt | date:'medium' }}</div>
+      </div>
+    </div>
   </div>
   <div class="card-footer">
     <a type="button" class="btn-floating" (click)="loveQuestion()">

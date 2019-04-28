@@ -4,6 +4,7 @@ import { SingleQuestion } from 'src/app/core/models/single-question.interface';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { SingleQuestionService } from 'src/app/core/services/single-question.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-profile-question-card',
@@ -11,6 +12,8 @@ import { SingleQuestionService } from 'src/app/core/services/single-question.ser
   styleUrls: ['./user-profile-question-card.component.scss']
 })
 export class UserProfileQuestionCardComponent implements OnInit, OnDestroy {
+
+  readonly defaultPhotoUrl = environment.defaultUserPhotoUrl;
 
   @Input() singleQuestion: SingleQuestion;
 

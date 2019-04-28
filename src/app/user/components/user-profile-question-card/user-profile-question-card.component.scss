@@ -11,6 +11,15 @@
   cursor: pointer;
 }
 
+.profile-img {
+  border-radius: 50%;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin: 0;
+  vertical-align: middle;
+}
+
 .date-time-text {
   font-size: 10px;
   color: #888;
