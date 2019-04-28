@@ -1,1 +1,11 @@
-{{ user | json }}
+<div class="card d-flex h-100 mt-3 mb-3">
+  <div class="card-body">
+    <div class="d-flex justify-content-start">
+      <img [src]="user.photoUrl || defaultPhotoUrl" class="profile-img">
+      <div class="ml-3">
+        <p class="username-text" [routerLink]="['/users', user.id]">@<strong>{{ user.username }}</strong></p>
+        {{ user.firstName }} {{ user.lastName }}
+      </div>
+    </div>
+  </div>
+</div>

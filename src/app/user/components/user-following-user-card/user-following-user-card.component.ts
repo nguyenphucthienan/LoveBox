@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/core/models/user.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-following-user-card',
@@ -7,6 +8,8 @@ import { User } from 'src/app/core/models/user.interface';
   styleUrls: ['./user-following-user-card.component.scss']
 })
 export class UserFollowingUserCardComponent implements OnInit {
+
+  readonly defaultPhotoUrl = environment.defaultUserPhotoUrl;
 
   @Input() user: User;
 
