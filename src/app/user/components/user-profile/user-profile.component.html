@@ -3,8 +3,9 @@
     <div class="col-lg-3 mt-3">
       <app-user-profile-overview [user]="user"></app-user-profile-overview>
       <div class="text-center">
-        <button mdbBtn type="button" size="sm" color="pink" mdbWavesEffect>
-          <mdb-icon fas icon="user-plus" class="mr-1"></mdb-icon>Follow
+        <button mdbBtn type="button" size="sm" color="pink" mdbWavesEffect (click)="followOrUnfollowUser()">
+          <mdb-icon fas icon="user-plus" class="mr-1"></mdb-icon>
+          {{ user.followed ? 'Unfollow' : 'Follow' }}
         </button>
       </div>
     </div>

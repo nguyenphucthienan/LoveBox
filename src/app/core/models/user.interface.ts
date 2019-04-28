@@ -11,4 +11,5 @@ export interface User {
   roles?: Role[];
   followingCount?: number;
   followersCount?: number;
+  followed?: boolean;
 }
