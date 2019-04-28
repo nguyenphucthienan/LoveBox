@@ -16,13 +16,14 @@
           <a class="nav-item nav-link" [class.active]="currentTab === tabNames.questions"
             (click)="selectTab(tabNames.questions)">Questions</a>
           <a class="nav-item nav-link" [class.active]="currentTab === tabNames.bffDetail"
-            (click)="selectTab(tabNames.bffDetail)">BFF Detail</a>
+            (click)="selectTab(tabNames.bffDetail)">BFF</a>
         </nav>
         <div class="dropdown-divider mb-3"></div>
         <div *ngIf="currentTab === tabNames.questions">
           <app-user-profile-questions-tab [user]="user"></app-user-profile-questions-tab>
         </div>
         <div *ngIf="currentTab === tabNames.bffDetail">
+          <app-user-profile-bff-tab [myUser]="myUser" [user]="user"></app-user-profile-bff-tab>
         </div>
       </div>
     </div>

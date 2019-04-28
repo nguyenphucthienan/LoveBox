@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthRoleGuard } from './guards/auth-role.guard';
 import { AlertService } from './services/alert.service';
 import { AuthService } from './services/auth.service';
+import { BffRequestService } from './services/bff-request.service';
 import { SingleQuestionService } from './services/single-question.service';
 import { UserService } from './services/user.service';
 
@@ -46,7 +47,8 @@ const toastrOptions = {
     AuthRoleGuard,
     AlertService,
     UserService,
-    SingleQuestionService
+    SingleQuestionService,
+    BffRequestService
   ]
 })
 export class CoreModule {

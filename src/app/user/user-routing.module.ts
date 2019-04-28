@@ -43,7 +43,10 @@ const routes: Routes = [
     component: UserProfileComponent,
     canActivate: [AuthRoleGuard],
     data: { roles: ['ROLE_USER'] },
-    resolve: { user: UserResolver }
+    resolve: {
+      myUser: MyUserResolver,
+      user: UserResolver
+    }
   },
   {
     path: 'following',

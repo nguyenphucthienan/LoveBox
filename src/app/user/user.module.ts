@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
+import { UserFollowingUserCardComponent } from './components/user-following-user-card/user-following-user-card.component';
+import { UserFollowingComponent } from './components/user-following/user-following.component';
+import { UserMeQuestionsTabComponent } from './components/user-me-questions-tab/user-me-questions-tab.component';
 import { UserMeComponent } from './components/user-me/user-me.component';
+import { UserProfileBffTabComponent } from './components/user-profile-bff-tab/user-profile-bff-tab.component';
 import { UserProfileOverviewComponent } from './components/user-profile-overview/user-profile-overview.component';
 import {
   UserProfileQuestionCardComponent,
@@ -22,9 +26,6 @@ import { MyUserResolver } from './resolvers/my-user.resolver';
 import { SingleQuestionResolver } from './resolvers/single-question.resolver';
 import { UserResolver } from './resolvers/user.resolver';
 import { UserRoutingModule } from './user-routing.module';
-import { UserMeQuestionsTabComponent } from './components/user-me-questions-tab/user-me-questions-tab.component';
-import { UserFollowingComponent } from './components/user-following/user-following.component';
-import { UserFollowingUserCardComponent } from './components/user-following-user-card/user-following-user-card.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UserFollowingUserCardComponent } from './components/user-following-user
     UserQuestionsAnswerQuestionComponent,
     UserMeQuestionsTabComponent,
     UserFollowingComponent,
-    UserFollowingUserCardComponent
+    UserFollowingUserCardComponent,
+    UserProfileBffTabComponent
   ],
   imports: [
     SharedModule,

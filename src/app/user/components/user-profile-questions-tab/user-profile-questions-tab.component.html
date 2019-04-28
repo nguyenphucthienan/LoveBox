@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mb-3">
   <div class="card-body">
     <form [formGroup]="askForm" (ngSubmit)="sendQuestion()">
       <div class="md-form">
@@ -17,7 +17,7 @@
     </form>
   </div>
 </div>
-<div class="dropdown-divider mt-3 mb-3"></div>
+<div *ngIf="singleQuestions.length > 0" class="dropdown-divider mt-3 mb-3"></div>
 <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
   (scrolled)="onScrollDown()">
   <app-user-profile-question-card *ngFor="let singleQuestion of singleQuestions" [singleQuestion]="singleQuestion">

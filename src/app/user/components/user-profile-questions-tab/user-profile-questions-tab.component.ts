@@ -16,7 +16,7 @@ export class UserProfileQuestionsTabComponent implements OnInit {
   @Input() user: User;
 
   askForm: FormGroup;
-  singleQuestions: SingleQuestion[];
+  singleQuestions: SingleQuestion[] = [];
   pagination: Pagination;
 
   constructor(

@@ -16,6 +16,7 @@ export class UserProfileComponent implements OnInit {
     bffDetail: 'BFF_DETAIL',
   };
 
+  myUser: User;
   user: User;
   currentTab: string = this.tabNames.questions;
 
@@ -26,6 +27,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
+      this.myUser = data.myUser;
       this.user = data.user;
     });
   }

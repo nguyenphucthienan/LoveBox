@@ -1,0 +1,24 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <div *ngIf="!user.bffDetail">
+      <div *ngIf="!loading && hasSentRequest">
+        <p><strong>You has sent a BFF request to this user.</strong></p>
+      </div>
+      <form *ngIf="!loading && !hasSentRequest" [formGroup]="requestForm" (ngSubmit)="sendRequest()">
+        <div class="md-form">
+          <textarea type="text" id="text" formControlName="text" class="md-textarea md-textarea-auto form-control"
+            mdbInputDirective [mdbValidate]="false"></textarea>
+          <label for="text">Write something</label>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <strong>{{ getRequestTextLength() }}</strong>
+          <div class="text-right">
+            <button mdbBtn type="submit" size="sm" color="pink" mdbWavesEffect [disabled]="requestForm.invalid">
+              <mdb-icon fas icon="send" class="mr-1"></mdb-icon>Send Request
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

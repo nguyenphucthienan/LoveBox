@@ -14,7 +14,7 @@ export class UserMeQuestionsTabComponent implements OnInit {
 
   @Input() user: User;
 
-  singleQuestions: SingleQuestion[];
+  singleQuestions: SingleQuestion[] = [];
   pagination: Pagination;
 
   constructor(
