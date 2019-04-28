@@ -27,7 +27,7 @@ export class UserQuestionsListComponent implements OnInit {
   }
 
   onScrollDown() {
-    if (this.pagination.page < this.pagination.totalPages) {
+    if (this.pagination && this.pagination.page < this.pagination.totalPages) {
       this.pagination.page += 1;
       this.singleQuestionService.getSingleQuestions(this.user.id, false, this.pagination)
         .subscribe((result: any) => {

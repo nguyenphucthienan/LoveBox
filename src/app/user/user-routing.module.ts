@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthRoleGuard } from '../core/guards/auth-role.guard';
+import { UserFollowingComponent } from './components/user-following/user-following.component';
 import { UserMeComponent } from './components/user-me/user-me.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import {
@@ -18,7 +19,10 @@ const routes: Routes = [
     component: UserQuestionsAnswerQuestionComponent,
     canActivate: [AuthRoleGuard],
     data: { roles: ['ROLE_USER'] },
-    resolve: { user: MyUserResolver, singleQuestion: SingleQuestionResolver }
+    resolve: {
+      user: MyUserResolver,
+      singleQuestion: SingleQuestionResolver
+    }
   },
   {
     path: 'questions',
@@ -40,6 +44,13 @@ const routes: Routes = [
     canActivate: [AuthRoleGuard],
     data: { roles: ['ROLE_USER'] },
     resolve: { user: UserResolver }
+  },
+  {
+    path: 'following',
+    component: UserFollowingComponent,
+    canActivate: [AuthRoleGuard],
+    data: { roles: ['ROLE_USER'] },
+    resolve: { user: MyUserResolver }
   }
 ];
 

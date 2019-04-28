@@ -23,6 +23,8 @@ import { SingleQuestionResolver } from './resolvers/single-question.resolver';
 import { UserResolver } from './resolvers/user.resolver';
 import { UserRoutingModule } from './user-routing.module';
 import { UserMeQuestionsTabComponent } from './components/user-me-questions-tab/user-me-questions-tab.component';
+import { UserFollowingComponent } from './components/user-following/user-following.component';
+import { UserFollowingUserCardComponent } from './components/user-following-user-card/user-following-user-card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { UserMeQuestionsTabComponent } from './components/user-me-questions-tab/
     UserQuestionsListComponent,
     UserQuestionsQuestionCardComponent,
     UserQuestionsAnswerQuestionComponent,
-    UserMeQuestionsTabComponent
+    UserMeQuestionsTabComponent,
+    UserFollowingComponent,
+    UserFollowingUserCardComponent
   ],
   imports: [
     SharedModule,

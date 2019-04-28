@@ -1,0 +1,16 @@
+<div class="container following-container">
+  <div class="row">
+    <div class="col-lg-3 mt-3">
+      <app-user-profile-overview [user]="user"></app-user-profile-overview>
+    </div>
+    <div class="col-lg-9 mt-3">
+      <div class="container-fluid">
+        <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
+          (scrolled)="onScrollDown()">
+          <app-user-following-user-card *ngFor="let user of followingUsers" [user]="user">
+          </app-user-following-user-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
