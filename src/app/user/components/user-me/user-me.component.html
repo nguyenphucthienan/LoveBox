@@ -13,6 +13,7 @@
         </nav>
         <div class="dropdown-divider mb-5"></div>
         <div *ngIf="currentTab === tabNames.questions">
+          <app-user-me-questions-tab [user]="user"></app-user-me-questions-tab>
         </div>
         <div *ngIf="currentTab === tabNames.bffDetail">
         </div>

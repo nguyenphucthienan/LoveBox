@@ -28,14 +28,14 @@ const routes: Routes = [
     resolve: { user: MyUserResolver }
   },
   {
-    path: 'profile/me',
+    path: 'users/me',
     component: UserMeComponent,
     canActivate: [AuthRoleGuard],
     data: { roles: ['ROLE_USER'] },
     resolve: { user: MyUserResolver }
   },
   {
-    path: 'profile/:id',
+    path: 'users/:id',
     component: UserProfileComponent,
     canActivate: [AuthRoleGuard],
     data: { roles: ['ROLE_USER'] },
