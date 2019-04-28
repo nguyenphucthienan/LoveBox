@@ -1,11 +1,6 @@
-.profile-img {
-  border-radius: 50%;
-  border: 3px solid white;
-  display: inline-block;
-  height: 200px;
-  width: 200px;
-  margin: 0 auto;
-  vertical-align: middle;
+.img-fluid {
+  width: 100%;
+  max-width: 150px;
 }
 
 .btn.btn-block {

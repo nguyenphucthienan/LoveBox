@@ -1,19 +1,23 @@
-<form [formGroup]="askForm" (ngSubmit)="sendQuestion()">
-  <div class="md-form">
-    <textarea type="text" id="questionText" formControlName="questionText"
-      class="md-textarea md-textarea-auto form-control" mdbInputDirective [mdbValidate]="false"></textarea>
-    <label for="questionText">Ask something</label>
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="askForm" (ngSubmit)="sendQuestion()">
+      <div class="md-form">
+        <textarea type="text" id="questionText" formControlName="questionText"
+          class="md-textarea md-textarea-auto form-control" mdbInputDirective [mdbValidate]="false"></textarea>
+        <label for="questionText">Ask something</label>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <strong>{{ getQuestionTextLength() }}</strong>
+        <div class="text-right">
+          <button mdbBtn type="submit" size="sm" color="pink" mdbWavesEffect [disabled]="askForm.invalid">
+            <mdb-icon fas icon="send" class="mr-1"></mdb-icon>Ask
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="d-flex justify-content-between align-items-center">
-    <strong>{{ getQuestionTextLength() }}</strong>
-    <div class="text-right">
-      <button mdbBtn type="submit" size="sm" color="pink" mdbWavesEffect [disabled]="askForm.invalid">
-        <mdb-icon fas icon="send" class="mr-1"></mdb-icon>Ask
-      </button>
-    </div>
-  </div>
-</form>
-<div class="dropdown-divider mt-5"></div>
+</div>
+<div class="dropdown-divider mt-3 mb-3"></div>
 <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
   (scrolled)="onScrollDown()">
   <app-user-profile-question-card *ngFor="let singleQuestion of singleQuestions" [singleQuestion]="singleQuestion">

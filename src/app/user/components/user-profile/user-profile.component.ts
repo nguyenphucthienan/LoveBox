@@ -36,6 +36,12 @@ export class UserProfileComponent implements OnInit {
 
   followOrUnfollowUser() {
     this.user.followed = !this.user.followed;
+    if (this.user.followed) {
+      this.user.followersCount += 1;
+    } else {
+      this.user.followersCount -= 1;
+    }
+
     this.userService.followOrUnfollowUser(this.user.id)
       .subscribe((result: any) => {
         if (result.success) {
@@ -47,8 +53,10 @@ export class UserProfileComponent implements OnInit {
         } else {
           if (this.user.followed) {
             this.alertService.error('Follow user failed');
+            this.user.followersCount -= 1;
           } else {
             this.alertService.error('Unfollow user failed');
+            this.user.followersCount += 1;
           }
           this.user.followed = !this.user.followed;
         }

@@ -1,12 +1,13 @@
 <div class="container questions-container">
   <div class="row">
     <div class="col-lg-3 mt-3">
-      <app-user-profile-overview [user]="user"></app-user-profile-overview>
-      <div class="text-center">
-        <button mdbBtn type="button" size="sm" color="pink" mdbWavesEffect>
-          <mdb-icon fas icon="download" class="mr-1"></mdb-icon>Get a random question
-        </button>
-      </div>
+      <app-user-profile-overview [user]="user">
+        <div class="buttons text-center">
+          <button mdbBtn type="button" size="sm" color="pink" mdbWavesEffect>
+            <mdb-icon fas icon="download" class="mr-1"></mdb-icon>Random question
+          </button>
+        </div>
+      </app-user-profile-overview>
     </div>
     <div class="col-lg-9 mt-3">
       <div class="container-fluid">
