@@ -27,6 +27,7 @@ import { SingleQuestionResolver } from './resolvers/single-question.resolver';
 import { UserResolver } from './resolvers/user.resolver';
 import { UserRoutingModule } from './user-routing.module';
 import { UserMeBffTabComponent } from './components/user-me-bff-tab/user-me-bff-tab.component';
+import { UserMeBffRequestCardComponent } from './components/user-me-bff-request-card/user-me-bff-request-card.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UserMeBffTabComponent } from './components/user-me-bff-tab/user-me-bff-
     UserFollowingComponent,
     UserFollowingUserCardComponent,
     UserProfileBffTabComponent,
-    UserMeBffTabComponent
+    UserMeBffTabComponent,
+    UserMeBffRequestCardComponent
   ],
   imports: [
     SharedModule,

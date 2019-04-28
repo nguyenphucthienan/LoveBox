@@ -1,0 +1,16 @@
+<div class="card d-flex h-100 mb-3">
+  <div class="card-header indigo white-text">
+  </div>
+  <div class="card-body">
+    <div class="d-flex flex-row align-items-center">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <img [src]="bffRequest.fromUser.photoUrl || defaultPhotoUrl" class="profile-img">
+        <strong>@{{ bffRequest.fromUser.username }}</strong>
+      </div>
+      <div class="ml-3">
+        <p class="question-text"><strong>{{ bffRequest.text }}</strong> </p>
+        <div class="date-time-text">{{ bffRequest.createdAt | date:'medium' }}</div>
+      </div>
+    </div>
+  </div>
+</div>

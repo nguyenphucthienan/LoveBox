@@ -1,10 +1,7 @@
 <ng-container *ngIf="!myUser.bffDetail">
   <h5 class="h5">Received BFF Request(s):</h5>
-  <div class="card mb-3">
-    <div class="card-body">
-      <div *ngIf="!myUser.bffDetail">
-        <div *ngFor="let bffRequest of receivedBffRequests">{{ bffRequest | json }}</div>
-      </div>
-    </div>
+  <div *ngIf="!myUser.bffDetail">
+    <app-user-me-bff-request-card *ngFor="let bffRequest of receivedBffRequests" [bffRequest]="bffRequest">
+    </app-user-me-bff-request-card>
   </div>
 </ng-container>

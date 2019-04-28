@@ -1,19 +1,25 @@
 <div class="container-fluid">
   <div class="card">
+    <div class="card-header indigo white-text">
+    </div>
     <div class="card-body">
       <div class="text-center">
         <img [src]="user.photoUrl || defaultPhotoUrl" class="img-fluid rounded-circle">
       </div>
       <div class="text-center mt-3">
         <h5 class="h5"><strong>@{{ user.username }}</strong></h5>
-        <p>{{ user.firstName }} {{ user.lastName }}</p>
-        <p>
-          <mdb-icon fas icon="magic" class="mr-1"></mdb-icon>Following: {{ user.followingCount }}
-        </p>
-        <p>
-          <mdb-icon fas icon="magic" class="mr-1"></mdb-icon>Followers: {{ user.followersCount }}
-        </p>
-        <p *ngIf="user.moodMessage">{{ user.moodMessage }}</p>
+        <h5 class="h5">{{ user.firstName }} {{ user.lastName }}</h5>
+        <div class="mt-3">
+          <mdb-icon fas icon="users" class="mr-1"></mdb-icon>
+          <strong>Following:</strong> {{ user.followingCount }}
+        </div>
+        <div class="mt-3">
+          <mdb-icon fas icon="users" class="mr-1"></mdb-icon>
+          <strong>Followers:</strong> {{ user.followersCount }}
+        </div>
+        <div *ngIf="user.moodMessage" class="mt-3">
+          {{ user.moodMessage }}
+        </div>
         <ng-content select="div.buttons"></ng-content>
       </div>
     </div>
