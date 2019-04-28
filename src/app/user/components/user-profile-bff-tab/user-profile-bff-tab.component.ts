@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BffRequest } from 'src/app/core/models/bff-request.interface';
 import { User } from 'src/app/core/models/user.interface';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { BffRequestService } from 'src/app/core/services/bff-request.service';
@@ -15,7 +16,7 @@ export class UserProfileBffTabComponent implements OnInit {
   @Input() user: User;
 
   loading = true;
-  hasSentRequest: boolean;
+  existSentRequest: BffRequest;
   requestForm: FormGroup;
 
   constructor(
@@ -29,11 +30,22 @@ export class UserProfileBffTabComponent implements OnInit {
       text: ['', [Validators.required, Validators.maxLength(200)]]
     });
 
-    this.bffRequestService.checkBffRequestExists(this.myUser.id, this.user.id)
-      .subscribe((result: any) => {
-        this.hasSentRequest = result.exist;
-        this.loading = false;
-      });
+    if (!this.myUser.bffDetail) {
+      this.getExistBffRequest();
+    }
+  }
+
+  getExistBffRequest() {
+    this.bffRequestService.getExistBffRequest(this.myUser.id, this.user.id)
+      .subscribe(
+        bffRequest => {
+          this.existSentRequest = bffRequest;
+          this.loading = false;
+        },
+        error => {
+          this.existSentRequest = null;
+          this.loading = false;
+        });
   }
 
   getRequestTextLength() {
@@ -50,6 +62,7 @@ export class UserProfileBffTabComponent implements OnInit {
       bffRequest => {
         this.alertService.success('Send BFF request successfully');
         this.requestForm.reset();
+        this.getExistBffRequest();
       },
       error => this.alertService.error('Send BFF request failed'));
   }

@@ -14,14 +14,14 @@ export class UserMeComponent implements OnInit {
     bffDetail: 'BFF_DETAIL',
   };
 
-  user: User;
+  myUser: User;
   currentTab: string = this.tabNames.questions;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.user = data.user;
+      this.myUser = data.myUser;
     });
   }
 

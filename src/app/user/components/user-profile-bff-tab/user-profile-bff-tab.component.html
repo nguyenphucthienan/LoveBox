@@ -1,10 +1,12 @@
-<div class="card mb-3">
-  <div class="card-body">
-    <div *ngIf="!user.bffDetail">
-      <div *ngIf="!loading && hasSentRequest">
-        <p><strong>You has sent a BFF request to this user.</strong></p>
+<ng-container *ngIf="!user.bffDetail">
+  <div class="card mb-3">
+    <div class="card-body">
+      <div *ngIf="!loading && existSentRequest">
+        <p><strong>You has sent a BFF request to this user</strong></p>
+        <p>{{ existSentRequest.text }}</p>
+        <div class="date-time-text">{{ existSentRequest.createdAt | date:'medium' }}</div>
       </div>
-      <form *ngIf="!loading && !hasSentRequest" [formGroup]="requestForm" (ngSubmit)="sendRequest()">
+      <form *ngIf="!loading && !existSentRequest" [formGroup]="requestForm" (ngSubmit)="sendRequest()">
         <div class="md-form">
           <textarea type="text" id="text" formControlName="text" class="md-textarea md-textarea-auto form-control"
             mdbInputDirective [mdbValidate]="false"></textarea>
@@ -21,4 +23,4 @@
       </form>
     </div>
   </div>
-</div>
+</ng-container>

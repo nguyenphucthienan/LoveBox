@@ -5,4 +5,5 @@ export interface BffRequest {
   fromUser: User;
   toUser: User;
   text: string;
+  createdAt: Date;
 }

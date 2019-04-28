@@ -36,7 +36,7 @@ const routes: Routes = [
     component: UserMeComponent,
     canActivate: [AuthRoleGuard],
     data: { roles: ['ROLE_USER'] },
-    resolve: { user: MyUserResolver }
+    resolve: { myUser: MyUserResolver }
   },
   {
     path: 'users/:id',

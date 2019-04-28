@@ -12,7 +12,7 @@ import { SingleQuestionService } from 'src/app/core/services/single-question.ser
 })
 export class UserMeQuestionsTabComponent implements OnInit {
 
-  @Input() user: User;
+  @Input() myUser: User;
 
   singleQuestions: SingleQuestion[] = [];
   pagination: Pagination;
@@ -23,7 +23,7 @@ export class UserMeQuestionsTabComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.singleQuestionService.getSingleQuestions(this.user.id, true)
+    this.singleQuestionService.getSingleQuestions(this.myUser.id, true)
       .subscribe((result: any) => {
         this.singleQuestions = result.content;
         this.pagination = result.pagination;
@@ -33,7 +33,7 @@ export class UserMeQuestionsTabComponent implements OnInit {
   onScrollDown() {
     if (this.pagination.page < this.pagination.totalPages) {
       this.pagination.page += 1;
-      this.singleQuestionService.getSingleQuestions(this.user.id, true, this.pagination)
+      this.singleQuestionService.getSingleQuestions(this.myUser.id, true, this.pagination)
         .subscribe((result: any) => {
           this.singleQuestions = [...this.singleQuestions, ...result.content];
           this.pagination = result.pagination;

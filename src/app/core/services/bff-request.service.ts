@@ -13,7 +13,7 @@ export class BffRequestService {
 
   private readonly bffRequestsUrl = `${environment.apiUrl}/users/{userId}/bff-requests`;
   private readonly bffRequestUrl = `${environment.apiUrl}/users/{userId}/bff-requests/{id}`;
-  private readonly checkExistsBffRequestUrl = `${environment.apiUrl}/users/{userId}/bff-requests/check-exists`;
+  private readonly checkExistsBffRequestUrl = `${environment.apiUrl}/users/{userId}/bff-requests/exist`;
   private readonly approveBffRequestnUrl = `${environment.apiUrl}/users/{userId}/bff-requests/{id}/approve`;
   private readonly rejectBffRequestUrl = `${environment.apiUrl}/users/{userId}/bff-requests/{id}/reject`;
 
@@ -53,14 +53,14 @@ export class BffRequestService {
     return this.http.get<BffRequest>(url);
   }
 
-  checkBffRequestExists(fromUserId: number, toUserId): Observable<any> {
+  getExistBffRequest(fromUserId: number, toUserId): Observable<BffRequest> {
     const params = new ParamsBuilder()
       .setParam('fromUserId', fromUserId.toString())
       .setParam('toUserId', toUserId.toString())
       .build();
 
     const url = UrlUtils.resolvePathVariables(this.checkExistsBffRequestUrl, { userId: 0 });
-    return this.http.get<any[]>(`${url}`, { params });
+    return this.http.get<BffRequest>(`${url}`, { params });
   }
 
   createBffRequest(userId: number, text: string): Observable<BffRequest> {

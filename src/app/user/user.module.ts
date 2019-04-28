@@ -26,6 +26,7 @@ import { MyUserResolver } from './resolvers/my-user.resolver';
 import { SingleQuestionResolver } from './resolvers/single-question.resolver';
 import { UserResolver } from './resolvers/user.resolver';
 import { UserRoutingModule } from './user-routing.module';
+import { UserMeBffTabComponent } from './components/user-me-bff-tab/user-me-bff-tab.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UserRoutingModule } from './user-routing.module';
     UserMeQuestionsTabComponent,
     UserFollowingComponent,
     UserFollowingUserCardComponent,
-    UserProfileBffTabComponent
+    UserProfileBffTabComponent,
+    UserMeBffTabComponent
   ],
   imports: [
     SharedModule,
