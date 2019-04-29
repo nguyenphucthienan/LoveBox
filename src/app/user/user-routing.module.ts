@@ -5,6 +5,7 @@ import { AuthRoleGuard } from '../core/guards/auth-role.guard';
 import { UserFollowingComponent } from './components/user-following/user-following.component';
 import { UserMeComponent } from './components/user-me/user-me.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserQuestionDetailComponent } from './components/user-question-detail/user-question-detail.component';
 import {
   UserQuestionsAnswerQuestionComponent,
 } from './components/user-questions-answer-question/user-questions-answer-question.component';
@@ -17,6 +18,16 @@ const routes: Routes = [
   {
     path: 'users/:userId/single-questions/:id/answer',
     component: UserQuestionsAnswerQuestionComponent,
+    canActivate: [AuthRoleGuard],
+    data: { roles: ['ROLE_USER'] },
+    resolve: {
+      user: MyUserResolver,
+      singleQuestion: SingleQuestionResolver
+    }
+  },
+  {
+    path: 'users/:userId/single-questions/:id',
+    component: UserQuestionDetailComponent,
     canActivate: [AuthRoleGuard],
     data: { roles: ['ROLE_USER'] },
     resolve: {

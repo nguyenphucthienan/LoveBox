@@ -13,5 +13,5 @@
   </div>
 </ng-container>
 <ng-container *ngIf="myUser.bffDetail">
-  {{ myUser.bffDetail | json }}
+  <app-user-profile-bff-overview [user]="myUser"></app-user-profile-bff-overview>
 </ng-container>

@@ -1,15 +1,14 @@
+.question-container {
+  margin-top: 75px;
+}
+
 .card-header {
-  padding: 1px;
+  padding: 3px;
 }
 
 .card-body {
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.username-text:hover,
-.question-text:hover {
-  cursor: pointer;
 }
 
 .profile-img {
@@ -26,6 +25,10 @@
   color: #888;
 }
 
+.username-text:hover {
+  cursor: pointer;
+}
+
 .fa.fa-heart,
 .fa.fa-share-alt {
   color: #9e9e9e;
@@ -33,4 +36,8 @@
 
 .pink-color {
   color: #ff4081 !important;
+}
+
+.title-text {
+  font-weight: bold;
 }

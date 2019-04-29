@@ -1,0 +1,43 @@
+<div class="container question-container">
+  <div class="row">
+    <div class="col-lg-3 mt-3">
+    </div>
+    <div class="col-lg-9 mt-3">
+      <div class="card">
+        <div class="card-header indigo white-text">
+        </div>
+        <div class="card-body">
+          <div class="d-flex flex-row align-items-center">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <img [src]="singleQuestion.answerer.photoUrl || defaultPhotoUrl" class="profile-img">
+              <strong class="mt-2 username-text"
+                [routerLink]="['/users', singleQuestion.answerer.id]">@{{ singleQuestion.answerer.username }}
+              </strong>
+            </div>
+            <div class="ml-3">
+              <p class="question-text"> <strong>{{ singleQuestion.questionText }}</strong> </p>
+              <p>{{ singleQuestion.answerText }}</p>
+              <div class="date-time-text">{{ singleQuestion.createdAt | date:'medium' }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a type="button" class="btn-floating" (click)="loveQuestion()">
+            <i class="fa fa-lg fa-heart" [class.pink-color]="isLoved"></i>
+            {{ numOfLoves > 0 ? numOfLoves : null }}
+          </a>
+          <a type="button" class="btn-floating float-right"><i class="fa fa-lg fa-share-alt"></i></a>
+        </div>
+      </div>
+      <div *ngIf="singleQuestion.loves.length > 0" class="card mt-3">
+        <div class="card-header indigo white-text"></div>
+        <div class="card-body">
+          <p class="title-text">Who loves this question:</p>
+          <span class="username-text" *ngFor="let user of singleQuestion.loves" [routerLink]="['/users', user.id]">
+            @{{ user.username }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

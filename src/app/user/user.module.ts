@@ -17,6 +17,7 @@ import {
   UserProfileQuestionsTabComponent,
 } from './components/user-profile-questions-tab/user-profile-questions-tab.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserQuestionDetailComponent } from './components/user-question-detail/user-question-detail.component';
 import {
   UserQuestionsAnswerQuestionComponent,
 } from './components/user-questions-answer-question/user-questions-answer-question.component';
@@ -47,7 +48,8 @@ import { UserRoutingModule } from './user-routing.module';
     UserProfileBffTabComponent,
     UserMeBffTabComponent,
     UserMeBffRequestCardComponent,
-    UserProfileBffOverviewComponent
+    UserProfileBffOverviewComponent,
+    UserQuestionDetailComponent
   ],
   imports: [
     SharedModule,
