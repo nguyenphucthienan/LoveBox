@@ -1,5 +1,8 @@
 <ng-container *ngIf="!myUser.bffDetail">
-  <h5 class="h5">Received BFF Request(s):</h5>
+  <p *ngIf="receivedBffRequests.length <= 0" class="info-text">
+    You are not received any BFF request
+  </p>
+  <h5 *ngIf="receivedBffRequests.length > 0" class="h5">Received BFF Request(s):</h5>
   <div *ngIf="!myUser.bffDetail">
     <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
       (scrolled)="onScrollDown()">
@@ -8,4 +11,7 @@
       </app-user-me-bff-request-card>
     </div>
   </div>
+</ng-container>
+<ng-container *ngIf="myUser.bffDetail">
+  {{ myUser.bffDetail | json }}
 </ng-container>

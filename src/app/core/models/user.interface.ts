@@ -1,3 +1,4 @@
+import { BffDetail } from './bff-detail.interface';
 import { Role } from './role.interface';
 
 export interface User {
@@ -9,7 +10,7 @@ export interface User {
   photoUrl?: string;
   moodMessage?: string;
   roles?: Role[];
-  bffDetail?: any;
+  bffDetail?: BffDetail;
   followingCount?: number;
   followersCount?: number;
   followed?: boolean;

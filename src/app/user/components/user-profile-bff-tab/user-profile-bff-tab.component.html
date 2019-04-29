@@ -1,10 +1,10 @@
-<ng-container *ngIf="!user.bffDetail">
+<ng-container *ngIf="!user.bffDetail && !myUser.bffDetail">
   <div class="card mb-3">
     <div class="card-header indigo white-text">
     </div>
     <div class="card-body">
       <div *ngIf="!loading && existSentRequest">
-        <p><strong>You has sent a BFF request to this user</strong></p>
+        <p class="info-text">You has sent a BFF request to this user</p>
         <p>{{ existSentRequest.text }}</p>
         <div class="date-time-text">{{ existSentRequest.createdAt | date:'medium' }}</div>
       </div>
@@ -25,4 +25,12 @@
       </form>
     </div>
   </div>
+</ng-container>
+<ng-container *ngIf="!user.bffDetail && myUser.bffDetail">
+  <div>
+    <p class="info-text">You alrealdy have a BFF, so you cannot send a BFF request to this user</p>
+  </div>
+</ng-container>
+<ng-container *ngIf="user.bffDetail">
+  <app-user-profile-bff-overview [user]="user"></app-user-profile-bff-overview>
 </ng-container>

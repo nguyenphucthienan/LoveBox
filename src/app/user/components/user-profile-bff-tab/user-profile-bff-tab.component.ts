@@ -30,7 +30,7 @@ export class UserProfileBffTabComponent implements OnInit {
       text: ['', [Validators.required, Validators.maxLength(200)]]
     });
 
-    if (!this.myUser.bffDetail) {
+    if (!this.user.bffDetail) {
       this.getExistBffRequest();
     }
   }

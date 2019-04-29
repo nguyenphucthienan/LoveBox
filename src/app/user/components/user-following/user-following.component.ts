@@ -33,7 +33,7 @@ export class UserFollowingComponent implements OnInit {
   }
 
   onScrollDown() {
-    if (this.pagination.page < this.pagination.totalPages) {
+    if (this.pagination && this.pagination.page < this.pagination.totalPages) {
       this.pagination.page += 1;
       this.userService.getFollowing(this.user.id, this.pagination)
         .subscribe((result: any) => {
