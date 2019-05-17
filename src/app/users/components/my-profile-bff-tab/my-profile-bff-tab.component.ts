@@ -7,11 +7,11 @@ import { BffRequestService } from 'src/app/core/services/bff-request.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
-  selector: 'app-user-me-bff-tab',
-  templateUrl: './user-me-bff-tab.component.html',
-  styleUrls: ['./user-me-bff-tab.component.scss']
+  selector: 'app-my-profile-bff-tab',
+  templateUrl: './my-profile-bff-tab.component.html',
+  styleUrls: ['./my-profile-bff-tab.component.scss']
 })
-export class UserMeBffTabComponent implements OnInit {
+export class MyProfileBffTabComponent implements OnInit {
 
   @Input() myUser: User;
 

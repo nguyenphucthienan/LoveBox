@@ -6,9 +6,9 @@
   <div *ngIf="!myUser.bffDetail">
     <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
       (scrolled)="onScrollDown()">
-      <app-user-me-bff-request-card *ngFor="let bffRequest of receivedBffRequests" [bffRequest]="bffRequest"
+      <app-my-profile-bff-request-card *ngFor="let bffRequest of receivedBffRequests" [bffRequest]="bffRequest"
         (approved)="approveRequest($event)" (rejected)="rejectRequest($event)">
-      </app-user-me-bff-request-card>
+      </app-my-profile-bff-request-card>
     </div>
   </div>
 </ng-container>

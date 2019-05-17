@@ -6,8 +6,8 @@ import { RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
-import { UserProfileOverviewComponent } from './components/user-profile-overview/user-profile-overview.component';
 import { QuestionCardComponent } from './components/question-card/question-card.component';
+import { UserProfileOverviewComponent } from './components/user-profile-overview/user-profile-overview.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { QuestionCardComponent } from './components/question-card/question-card.
     MDBBootstrapModule.forRoot().ngModule,
     MatTabsModule,
     InfiniteScrollModule,
-    UserProfileOverviewComponent
+    UserProfileOverviewComponent,
+    QuestionCardComponent
   ]
 })
 export class SharedModule { }

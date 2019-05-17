@@ -11,14 +11,8 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  public readonly tabNames = {
-    questions: 'QUESTIONS',
-    bffDetail: 'BFF_DETAIL',
-  };
-
   myUser: User;
   user: User;
-  currentTab: string = this.tabNames.questions;
 
   constructor(
     private router: Router,
@@ -35,10 +29,6 @@ export class UserProfileComponent implements OnInit {
         this.router.navigate(['/users', 'me']);
       }
     });
-  }
-
-  selectTab(tabName: string) {
-    this.currentTab = tabName;
   }
 
   followOrUnfollowUser() {

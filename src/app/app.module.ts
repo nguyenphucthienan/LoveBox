@@ -8,6 +8,7 @@ import { PublicModule } from './public/public.module';
 import { QuestionsModule } from './questions/questions.module';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { UserModule } from './user/user.module';
     PublicModule,
     UserModule,
     QuestionsModule,
+    UsersModule,
     AppRoutingModule
   ],
   providers: [],
