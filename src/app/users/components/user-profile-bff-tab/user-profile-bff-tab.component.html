@@ -11,7 +11,7 @@
       <form *ngIf="!loading && !existSentRequest" [formGroup]="requestForm" (ngSubmit)="sendRequest()">
         <div class="md-form">
           <textarea type="text" id="text" formControlName="text" class="md-textarea md-textarea-auto form-control"
-            mdbInputDirective [mdbValidate]="false"></textarea>
+            mdbInput></textarea>
           <label for="text">Write something</label>
         </div>
         <div class="d-flex justify-content-between align-items-center">

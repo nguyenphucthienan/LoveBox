@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
+import {
+  MyProfileBffRequestCardComponent,
+} from './components/my-profile-bff-request-card/my-profile-bff-request-card.component';
 import { MyProfileBffTabComponent } from './components/my-profile-bff-tab/my-profile-bff-tab.component';
 import { MyProfileQuestionsTabComponent } from './components/my-profile-questions-tab/my-profile-questions-tab.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
@@ -10,8 +13,8 @@ import {
   UserProfileQuestionsTabComponent,
 } from './components/user-profile-questions-tab/user-profile-questions-tab.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { BffRequestModalComponent } from './modals/bff-request-modal/bff-request-modal.component';
 import { UsersRoutingModule } from './users-routing.module';
-import { MyProfileBffRequestCardComponent } from './components/my-profile-bff-request-card/my-profile-bff-request-card.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,15 @@ import { MyProfileBffRequestCardComponent } from './components/my-profile-bff-re
     MyProfileComponent,
     MyProfileQuestionsTabComponent,
     MyProfileBffTabComponent,
-    MyProfileBffRequestCardComponent
+    MyProfileBffRequestCardComponent,
+    BffRequestModalComponent
   ],
   imports: [
     SharedModule,
     UsersRoutingModule
+  ],
+  entryComponents: [
+    BffRequestModalComponent
   ]
 })
 export class UsersModule { }

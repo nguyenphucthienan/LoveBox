@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
 import { BffRequest } from 'src/app/core/models/bff-request.interface';
 import { environment } from 'src/environments/environment';
+
+import { BffRequestModalComponent } from '../../modals/bff-request-modal/bff-request-modal.component';
 
 @Component({
   selector: 'app-my-profile-bff-request-card',
@@ -15,25 +18,43 @@ export class MyProfileBffRequestCardComponent implements OnInit {
   @Output() approved = new EventEmitter();
   @Output() rejected = new EventEmitter();
 
-  // @ViewChild('bffRequestModal') bffRequestModal: ModalDirective;
+  modalRef: MDBModalRef;
 
-  constructor() { }
+  constructor(private modalService: MDBModalService) { }
 
   ngOnInit() {
   }
 
   openBffRequestModal() {
-    // this.bffRequestModal.show();
+    this.modalRef = this.modalService.show(BffRequestModalComponent, {
+      backdrop: true,
+      keyboard: true,
+      focus: true,
+      show: false,
+      ignoreBackdropClick: true,
+      class: 'modal-dialog-centered',
+      containerClass: 'top',
+      animated: true,
+      data: {
+        bffRequest: this.bffRequest
+      }
+    });
+
+    this.modalRef.content.approved
+      .subscribe((bffRequest: BffRequest) => this.onRequestApproved(bffRequest));
+
+    this.modalRef.content.rejected
+      .subscribe((bffRequest: BffRequest) => this.onRequestRejected(bffRequest));
   }
 
-  approveRequest() {
-    this.approved.emit(this.bffRequest);
-    // this.bffRequestModal.hide();
+  onRequestApproved(bffRequest: BffRequest) {
+    this.approved.emit(bffRequest);
+    this.modalRef.hide();
   }
 
-  rejectRequest() {
-    this.rejected.emit(this.bffRequest);
-    // this.bffRequestModal.hide();
+  onRequestRejected(bffRequest: BffRequest) {
+    this.rejected.emit(bffRequest);
+    this.modalRef.hide();
   }
 
 }

@@ -1,0 +1,26 @@
+.card-body {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.request-text:hover {
+  cursor: pointer;
+}
+
+.username-text {
+  font-weight: bold;
+}
+
+.date-time-text {
+  font-size: 10px;
+  color: #888;
+}

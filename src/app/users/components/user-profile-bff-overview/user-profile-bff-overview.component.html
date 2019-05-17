@@ -10,9 +10,9 @@
           <div class="name-text">{{ bffDetail.firstUser.firstName }} {{ bffDetail.firstUser.lastName }}</div>
         </div>
       </div>
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <mdb-icon fas icon="heart" size="3x" class="pink-text"></mdb-icon>
-        <h5 class="h5 indigo-text text-center"><strong>{{ daysPassed }} days</strong></h5>
+      <div class="d-flex flex-column justify-content-center align-items-center ">
+        <mdb-icon fas icon="heart" size="3x" class="pink-text animated bounceIn infinite"></mdb-icon>
+        <h5 class="h5 indigo-text text-center mt-2"><strong>{{ daysPassed }} days</strong></h5>
       </div>
       <div class="d-flex flex-column justify-content-center align-items-center">
         <img [src]="bffDetail.secondUser.photoUrl || defaultPhotoUrl" class="img-fluid rounded-circle">

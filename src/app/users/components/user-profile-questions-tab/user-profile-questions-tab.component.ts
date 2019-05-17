@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pagination } from 'src/app/core/models/pagination.interface';
 import { SingleQuestion } from 'src/app/core/models/single-question.interface';
@@ -11,7 +11,7 @@ import { SingleQuestionService } from 'src/app/core/services/single-question.ser
   templateUrl: './user-profile-questions-tab.component.html',
   styleUrls: ['./user-profile-questions-tab.component.scss']
 })
-export class UserProfileQuestionsTabComponent implements OnInit {
+export class UserProfileQuestionsTabComponent implements OnInit, OnChanges {
 
   @Input() user: User;
 
@@ -29,12 +29,16 @@ export class UserProfileQuestionsTabComponent implements OnInit {
     this.askForm = this.fb.group({
       questionText: ['', [Validators.required, Validators.maxLength(200)]]
     });
+  }
 
-    this.singleQuestionService.getSingleQuestions(this.user.id, true)
-      .subscribe((result: any) => {
-        this.singleQuestions = result.content;
-        this.pagination = result.pagination;
-      });
+  ngOnChanges() {
+    if (this.user) {
+      this.singleQuestionService.getSingleQuestions(this.user.id, true)
+        .subscribe((result: any) => {
+          this.singleQuestions = result.content;
+          this.pagination = result.pagination;
+        });
+    }
   }
 
   onScrollDown() {
