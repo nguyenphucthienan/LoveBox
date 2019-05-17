@@ -7,8 +7,8 @@
       <div class="container-fluid">
         <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
           (scrolled)="onScrollDown()">
-          <app-user-following-user-card *ngFor="let user of followingUsers" [user]="user">
-          </app-user-following-user-card>
+          <app-following-user-card *ngFor="let user of followingUsers" [user]="user">
+          </app-following-user-card>
         </div>
       </div>
     </div>

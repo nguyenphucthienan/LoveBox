@@ -3,11 +3,11 @@ import { User } from 'src/app/core/models/user.interface';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-user-following-user-card',
-  templateUrl: './user-following-user-card.component.html',
-  styleUrls: ['./user-following-user-card.component.scss']
+  selector: 'app-following-user-card',
+  templateUrl: './following-user-card.component.html',
+  styleUrls: ['./following-user-card.component.scss']
 })
-export class UserFollowingUserCardComponent implements OnInit {
+export class FollowingUserCardComponent implements OnInit {
 
   readonly defaultPhotoUrl = environment.defaultUserPhotoUrl;
 

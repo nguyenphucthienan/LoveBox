@@ -4,10 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { FollowingModule } from './following/following.module';
 import { PublicModule } from './public/public.module';
 import { QuestionsModule } from './questions/questions.module';
 import { SharedModule } from './shared/shared.module';
-import { UserModule } from './user/user.module';
 import { UsersModule } from './users/users.module';
 
 @NgModule({
@@ -19,9 +19,9 @@ import { UsersModule } from './users/users.module';
     CoreModule,
     SharedModule,
     PublicModule,
-    UserModule,
     QuestionsModule,
     UsersModule,
+    FollowingModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pagination } from 'src/app/core/models/pagination.interface';
-import { User } from 'src/app/core/models/user.interface';
-import { UserService } from 'src/app/core/services/user.service';
+
+import { Pagination } from '../core/models/pagination.interface';
+import { User } from '../core/models/user.interface';
+import { UserService } from '../core/services/user.service';
 
 @Component({
-  selector: 'app-user-following',
-  templateUrl: './user-following.component.html',
-  styleUrls: ['./user-following.component.scss']
+  selector: 'app-following',
+  templateUrl: './following.component.html',
+  styleUrls: ['./following.component.scss']
 })
-export class UserFollowingComponent implements OnInit {
+export class FollowingComponent implements OnInit {
 
   user: User;
   followingUsers: User[];
