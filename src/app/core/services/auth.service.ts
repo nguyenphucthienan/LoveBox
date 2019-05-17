@@ -21,16 +21,12 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   readTokenFromStorage() {
-    const token = localStorage.getItem('token');
-    this.getMyUserInfo(token)
-      .subscribe(
-        (user: User) => {
-          if (user.username) {
-            this.changeDecodedToken(token);
-          }
-        },
-        error => this.logout()
-      );
+    if (this.isLoggedIn()) {
+      const token = localStorage.getItem('token');
+      this.changeDecodedToken(token);
+    } else {
+      this.logout();
+    }
   }
 
   isLoggedIn() {

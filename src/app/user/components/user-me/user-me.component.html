@@ -1,24 +1,21 @@
 <div class="container me-container">
   <div class="row">
-    <div class="col-lg-3 mt-3">
+    <div class="col-lg-3 mt-lg-3">
       <app-user-profile-overview [user]="myUser"></app-user-profile-overview>
     </div>
-    <div class="col-lg-9 mt-3">
-      <div class="container-fluid">
-        <nav class="nav nav-pills nav-fill">
-          <a class="nav-item nav-link" [class.active]="currentTab === tabNames.questions"
-            (click)="selectTab(tabNames.questions)">Questions</a>
-          <a class="nav-item nav-link" [class.active]="currentTab === tabNames.bffDetail"
-            (click)="selectTab(tabNames.bffDetail)">BFF</a>
-        </nav>
-        <div class="dropdown-divider mb-3"></div>
-        <div *ngIf="currentTab === tabNames.questions">
-          <app-user-me-questions-tab [myUser]="myUser"></app-user-me-questions-tab>
-        </div>
-        <div *ngIf="currentTab === tabNames.bffDetail">
-          <app-user-me-bff-tab [myUser]="myUser"></app-user-me-bff-tab>
-        </div>
-      </div>
+    <div class="col-lg-9 mt-lg-3 mt-4">
+      <mat-tab-group mat-stretch-tabs color="primary" backgroundColor="primary">
+        <mat-tab label="Questions">
+          <div class="container mt-4">
+            <app-user-me-questions-tab [myUser]="myUser"></app-user-me-questions-tab>
+          </div>
+        </mat-tab>
+        <mat-tab label="BFF">
+          <div class="container mt-4">
+            <app-user-me-bff-tab [myUser]="myUser"></app-user-me-bff-tab>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
 </div>
