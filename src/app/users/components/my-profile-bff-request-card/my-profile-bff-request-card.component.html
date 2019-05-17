@@ -2,12 +2,14 @@
   <div class="card-header indigo white-text py-1">
   </div>
   <div class="card-body">
-    <div class="d-flex flex-row align-items-center py-1">
+    <div class="d-flex flex-row">
       <div class="d-flex flex-column justify-content-center align-items-center">
         <img [src]="bffRequest.fromUser.photoUrl || defaultPhotoUrl" class="profile-img">
-        <strong>@{{ bffRequest.fromUser.username }}</strong>
+        <strong class="username-text mt-2" [routerLink]="['/users', bffRequest.fromUser.id]">
+          @{{ bffRequest.fromUser.username }}
+        </strong>
       </div>
-      <div class="ml-3">
+      <div class="ml-3 d-flex flex-column justify-content-between">
         <p class="request-text" (click)="openBffRequestModal()"><strong>{{ bffRequest.text }}</strong> </p>
         <div class="date-time-text">{{ bffRequest.createdAt | date:'medium' }}</div>
       </div>
