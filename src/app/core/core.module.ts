@@ -8,6 +8,9 @@ import { environment } from 'src/environments/environment';
 
 import { SharedModule } from '../shared/shared.module';
 import { AuthRoleGuard } from './guards/auth-role.guard';
+import { MyUserResolver } from './resolvers/my-user.resolver';
+import { SingleQuestionResolver } from './resolvers/single-question.resolver';
+import { UserResolver } from './resolvers/user.resolver';
 import { AlertService } from './services/alert.service';
 import { AuthService } from './services/auth.service';
 import { BffRequestService } from './services/bff-request.service';
@@ -48,7 +51,10 @@ const toastrOptions = {
     AlertService,
     UserService,
     SingleQuestionService,
-    BffRequestService
+    BffRequestService,
+    MyUserResolver,
+    UserResolver,
+    SingleQuestionResolver
   ]
 })
 export class CoreModule {

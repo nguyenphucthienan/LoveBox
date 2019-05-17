@@ -7,11 +7,11 @@ import { SingleQuestionService } from 'src/app/core/services/single-question.ser
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-user-question-detail',
-  templateUrl: './user-question-detail.component.html',
-  styleUrls: ['./user-question-detail.component.scss']
+  selector: 'app-question-detail',
+  templateUrl: './question-detail.component.html',
+  styleUrls: ['./question-detail.component.scss']
 })
-export class UserQuestionDetailComponent implements OnInit {
+export class QuestionDetailComponent implements OnInit {
 
   readonly defaultPhotoUrl = environment.defaultUserPhotoUrl;
 

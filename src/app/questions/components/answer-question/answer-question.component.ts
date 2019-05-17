@@ -7,11 +7,11 @@ import { AlertService } from 'src/app/core/services/alert.service';
 import { SingleQuestionService } from 'src/app/core/services/single-question.service';
 
 @Component({
-  selector: 'app-user-questions-answer-question',
-  templateUrl: './user-questions-answer-question.component.html',
-  styleUrls: ['./user-questions-answer-question.component.scss']
+  selector: 'app-answer-question',
+  templateUrl: './answer-question.component.html',
+  styleUrls: ['./answer-question.component.scss']
 })
-export class UserQuestionsAnswerQuestionComponent implements OnInit {
+export class AnswerQuestionComponent implements OnInit {
 
   answerForm: FormGroup;
   user: User;

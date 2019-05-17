@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/core/models/user.interface';
+
+import { User } from '../core/models/user.interface';
 
 @Component({
-  selector: 'app-user-questions',
-  templateUrl: './user-questions.component.html',
-  styleUrls: ['./user-questions.component.scss']
+  selector: 'app-questions',
+  templateUrl: './questions.component.html',
+  styleUrls: ['./questions.component.scss']
 })
-export class UserQuestionsComponent implements OnInit {
+export class QuestionsComponent implements OnInit {
 
   user: User;
 

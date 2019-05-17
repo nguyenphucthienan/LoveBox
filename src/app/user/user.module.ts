@@ -9,7 +9,6 @@ import { UserMeQuestionsTabComponent } from './components/user-me-questions-tab/
 import { UserMeComponent } from './components/user-me/user-me.component';
 import { UserProfileBffOverviewComponent } from './components/user-profile-bff-overview/user-profile-bff-overview.component';
 import { UserProfileBffTabComponent } from './components/user-profile-bff-tab/user-profile-bff-tab.component';
-import { UserProfileOverviewComponent } from './components/user-profile-overview/user-profile-overview.component';
 import {
   UserProfileQuestionCardComponent,
 } from './components/user-profile-question-card/user-profile-question-card.component';
@@ -17,48 +16,25 @@ import {
   UserProfileQuestionsTabComponent,
 } from './components/user-profile-questions-tab/user-profile-questions-tab.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { UserQuestionDetailComponent } from './components/user-question-detail/user-question-detail.component';
-import {
-  UserQuestionsAnswerQuestionComponent,
-} from './components/user-questions-answer-question/user-questions-answer-question.component';
-import { UserQuestionsListComponent } from './components/user-questions-list/user-questions-list.component';
-import {
-  UserQuestionsQuestionCardComponent,
-} from './components/user-questions-question-card/user-questions-question-card.component';
-import { UserQuestionsComponent } from './components/user-questions/user-questions.component';
-import { MyUserResolver } from './resolvers/my-user.resolver';
-import { SingleQuestionResolver } from './resolvers/single-question.resolver';
-import { UserResolver } from './resolvers/user.resolver';
 import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
   declarations: [
     UserProfileComponent,
-    UserProfileOverviewComponent,
     UserMeComponent,
     UserProfileQuestionsTabComponent,
     UserProfileQuestionCardComponent,
-    UserQuestionsComponent,
-    UserQuestionsListComponent,
-    UserQuestionsQuestionCardComponent,
-    UserQuestionsAnswerQuestionComponent,
     UserMeQuestionsTabComponent,
     UserFollowingComponent,
     UserFollowingUserCardComponent,
     UserProfileBffTabComponent,
     UserMeBffTabComponent,
     UserMeBffRequestCardComponent,
-    UserProfileBffOverviewComponent,
-    UserQuestionDetailComponent
+    UserProfileBffOverviewComponent
   ],
   imports: [
     SharedModule,
     UserRoutingModule
-  ],
-  providers: [
-    MyUserResolver,
-    UserResolver,
-    SingleQuestionResolver
   ]
 })
 export class UserModule { }

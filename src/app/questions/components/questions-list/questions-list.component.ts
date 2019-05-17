@@ -5,11 +5,11 @@ import { User } from 'src/app/core/models/user.interface';
 import { SingleQuestionService } from 'src/app/core/services/single-question.service';
 
 @Component({
-  selector: 'app-user-questions-list',
-  templateUrl: './user-questions-list.component.html',
-  styleUrls: ['./user-questions-list.component.scss']
+  selector: 'app-questions-list',
+  templateUrl: './questions-list.component.html',
+  styleUrls: ['./questions-list.component.scss']
 })
-export class UserQuestionsListComponent implements OnInit {
+export class QuestionsListComponent implements OnInit {
 
   singleQuestions: SingleQuestion[];
   pagination: Pagination;
