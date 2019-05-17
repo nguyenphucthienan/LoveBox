@@ -1,33 +1,28 @@
 <div class="container login-container">
-  <h2 class="h2 text-center indigo-text">Login</h2>
+  <h1 class="text-center">Login</h1>
   <div class="row align-items-center mt-3">
     <div class="col-lg-6 col-md-8 offset-lg-3 offset-md-2">
-      <mdb-card>
-        <mdb-card-header class="indigo white-text py-1">
-        </mdb-card-header>
-        <mdb-card-body class="px-lg-5">
+      <div class="card">
+        <div class="card-header indigo white-text py-2">
+        </div>
+        <div class="card-body">
           <form [formGroup]="loginForm" (ngSubmit)="login()" class="text-center">
-            <div class="md-form mt-3">
-              <input type="text" id="usernameOrEmail" formControlName="usernameOrEmail" class="form-control"
-                mdbInputDirective [mdbValidate]="false">
-              <label for="usernameOrEmail">Username/email</label>
-              <div *ngIf="controlHasError('usernameOrEmail', 'required')" class="invalid-message">
-                Username/email is required
-              </div>
+            <div class="md-form">
+              <input type="text" id="usernameOrEmail" formControlName="usernameOrEmail" class="form-control" mdbInput>
+              <label for="usernameOrEmail">Username / email</label>
+              <mdb-error *ngIf="controlHasError('usernameOrEmail', 'required')">Username / email is required</mdb-error>
             </div>
             <div class="md-form">
-              <input type="password" id="password" formControlName="password" class="form-control" mdbInputDirective
-                [mdbValidate]="false">
+              <input type="password" id="password" formControlName="password" class="form-control" mdbInput>
               <label for="password">Password</label>
-              <div *ngIf="controlHasError('password', 'required')" class="invalid-message">
-                Password is required
-              </div>
+              <mdb-error *ngIf="controlHasError('password', 'required')">Password is required</mdb-error>
             </div>
-            <button mdbBtn color="indigo" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
-              type="submit" [disabled]="loginForm.invalid">Login</button>
+            <button mdbBtn color="indigo" outline="true" rounded="true" block="true"
+              class="mt-4 mb-2 waves-effect z-depth-0" mdbWavesEffect type="submit"
+              [disabled]="loginForm.invalid">Login</button>
           </form>
-        </mdb-card-body>
-      </mdb-card>
+        </div>
+      </div>
     </div>
   </div>
 </div>
