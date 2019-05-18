@@ -20,6 +20,14 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+      <form class="form-inline waves-light" mdbWavesEffect (ngSubmit)="search(searchInput.value)">
+        <div class="input-group">
+          <input #searchInput type="text" class="form-control" placeholder="username" aria-label="Search"
+            aria-describedby="basic-addon1">
+          <button mdbBtn color="white" outline="true" size="sm" class="my-0 waves-light" type="submit"
+            mdbWavesEffect>Search</button>
+        </div>
+      </form>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link waves-light" mdbWavesEffect routerLink="/about">About</a>
       </li>
