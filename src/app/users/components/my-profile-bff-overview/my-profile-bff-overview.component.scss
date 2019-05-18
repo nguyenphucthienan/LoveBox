@@ -1,0 +1,22 @@
+.img-fluid {
+  width: 100%;
+  max-width: 100px;
+}
+
+.username-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.name-text {
+  font-size: 16px;
+}
+
+.username-text:hover {
+  cursor: pointer;
+}
+
+.btn.btn-sm {
+  padding-left: 10px;
+  padding-right: 10px;
+}

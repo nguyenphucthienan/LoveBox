@@ -25,6 +25,10 @@ export class MyProfileBffTabComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getReceivedBffRequests();
+  }
+
+  getReceivedBffRequests() {
     this.bffRequestService.getReceivedBffRequests(this.myUser.id)
       .subscribe((result: any) => {
         this.receivedBffRequests = result.content;
@@ -50,6 +54,7 @@ export class MyProfileBffTabComponent implements OnInit {
           if (result.success) {
             this.alertService.success('Approve BFF request successfully');
             this.refreshUserBffDetail();
+            this.getReceivedBffRequests();
           }
         },
         error => this.alertService.error('Approve BFF request failed'));
@@ -62,10 +67,22 @@ export class MyProfileBffTabComponent implements OnInit {
           if (result.success) {
             this.alertService.success('Reject BFF request successfully');
             this.refreshUserBffDetail();
-            this.filterRejectedRequest(bffRequest);
+            this.getReceivedBffRequests();
           }
         },
         error => this.alertService.error('Reject BFF request failed'));
+  }
+
+  breakUp() {
+    this.bffRequestService.breakUp(this.myUser.id)
+      .subscribe(
+        (result: any) => {
+          if (result.success) {
+            this.alertService.success('Break up successfully');
+            this.refreshUserBffDetail();
+          }
+        },
+        error => this.alertService.error('Break up failed'));
   }
 
   refreshUserBffDetail() {
@@ -73,9 +90,9 @@ export class MyProfileBffTabComponent implements OnInit {
       .subscribe(user => this.myUser.bffDetail = user.bffDetail);
   }
 
-  filterRejectedRequest(bffRequest: BffRequest) {
-    this.receivedBffRequests = this.receivedBffRequests
-      .filter(request => request.id !== bffRequest.id);
-  }
+  // filterRejectedRequest(bffRequest: BffRequest) {
+  //   this.receivedBffRequests = this.receivedBffRequests
+  //     .filter(request => request.id !== bffRequest.id);
+  // }
 
 }

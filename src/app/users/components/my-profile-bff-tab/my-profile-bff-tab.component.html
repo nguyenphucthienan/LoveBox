@@ -1,5 +1,5 @@
 <ng-container *ngIf="!myUser.bffDetail">
-  <p *ngIf="receivedBffRequests.length <= 0" class="info-text">
+  <p *ngIf="receivedBffRequests.length <= 0" class="font-weight-bold">
     You are not received any BFF request
   </p>
   <h5 *ngIf="receivedBffRequests.length > 0" class="h5">Received BFF Request(s):</h5>
@@ -13,5 +13,5 @@
   </div>
 </ng-container>
 <ng-container *ngIf="myUser.bffDetail">
-  <app-user-profile-bff-overview [user]="myUser"></app-user-profile-bff-overview>
+  <app-my-profile-bff-overview [user]="myUser" (breakUp)="breakUp()"></app-my-profile-bff-overview>
 </ng-container>

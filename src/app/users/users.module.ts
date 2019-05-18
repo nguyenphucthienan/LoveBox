@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
+import { MyProfileBffOverviewComponent } from './components/my-profile-bff-overview/my-profile-bff-overview.component';
 import {
   MyProfileBffRequestCardComponent,
 } from './components/my-profile-bff-request-card/my-profile-bff-request-card.component';
@@ -26,6 +27,7 @@ import { UsersRoutingModule } from './users-routing.module';
     MyProfileComponent,
     MyProfileQuestionsTabComponent,
     MyProfileBffTabComponent,
+    MyProfileBffOverviewComponent,
     MyProfileBffRequestCardComponent,
     BffRequestModalComponent,
     SearchUserComponent

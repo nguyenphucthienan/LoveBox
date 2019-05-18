@@ -18,6 +18,7 @@ export class BffRequestService {
   private readonly checkExistsBffRequestUrl = `${environment.apiUrl}/users/{userId}/bff-requests/exist`;
   private readonly approveBffRequestnUrl = `${environment.apiUrl}/users/{userId}/bff-requests/{id}/approve`;
   private readonly rejectBffRequestUrl = `${environment.apiUrl}/users/{userId}/bff-requests/{id}/reject`;
+  private readonly breakUpUrl = `${environment.apiUrl}/users/{userId}/bff-requests/break-up`;
 
   private readonly defaultPagination: Pagination = {
     page: 0,
@@ -95,4 +96,8 @@ export class BffRequestService {
     return this.http.post<any>(url, null);
   }
 
+  breakUp(userId: number): Observable<any> {
+    const url = UrlUtils.resolvePathVariables(this.breakUpUrl, { userId });
+    return this.http.post<any>(url, null);
+  }
 }
