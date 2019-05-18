@@ -15,6 +15,7 @@ export class UserService {
   private readonly followingUrl = `${environment.apiUrl}/users/{id}/following`;
   private readonly followersUrl = `${environment.apiUrl}/users/{id}/followers`;
   private readonly followUrl = `${environment.apiUrl}/users/{id}/follow`;
+  private readonly searchUrl = `${environment.apiUrl}/users/search`;
 
   private readonly defaultPagination: Pagination = {
     page: 0,
@@ -48,6 +49,15 @@ export class UserService {
   followOrUnfollowUser(id: number): Observable<any> {
     const url = UrlUtils.resolvePathVariables(this.followUrl, { id });
     return this.http.post<User>(url, null);
+  }
+
+  searchUsers(value: string, pagination: Pagination = this.defaultPagination): Observable<User[]> {
+    const params = new ParamsBuilder()
+      .applyPagination(pagination)
+      .setParam('username', value)
+      .build();
+
+    return this.http.get<User[]>(this.searchUrl, { params });
   }
 
 }

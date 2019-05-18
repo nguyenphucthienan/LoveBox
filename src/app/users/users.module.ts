@@ -7,6 +7,7 @@ import {
 import { MyProfileBffTabComponent } from './components/my-profile-bff-tab/my-profile-bff-tab.component';
 import { MyProfileQuestionsTabComponent } from './components/my-profile-questions-tab/my-profile-questions-tab.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { SearchUserComponent } from './components/search-user/search-user.component';
 import { UserProfileBffOverviewComponent } from './components/user-profile-bff-overview/user-profile-bff-overview.component';
 import { UserProfileBffTabComponent } from './components/user-profile-bff-tab/user-profile-bff-tab.component';
 import {
@@ -26,7 +27,8 @@ import { UsersRoutingModule } from './users-routing.module';
     MyProfileQuestionsTabComponent,
     MyProfileBffTabComponent,
     MyProfileBffRequestCardComponent,
-    BffRequestModalComponent
+    BffRequestModalComponent,
+    SearchUserComponent
   ],
   imports: [
     SharedModule,

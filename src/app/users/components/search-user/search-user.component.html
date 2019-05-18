@@ -1,13 +1,14 @@
-<div class="container following-container">
+<div class="container search-container">
   <div class="row">
     <div class="col-lg-3 mt-3">
-      <app-user-profile-overview [user]="user"></app-user-profile-overview>
     </div>
     <div class="col-lg-9 mt-3">
       <div class="container-fluid">
         <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
           (scrolled)="onScrollDown()">
-          <app-brief-detail-user-card *ngFor="let user of followingUsers" [user]="user">
+          <h5 *ngIf="users.length > 0" class="font-weight-bold mb-3">Search result:</h5>
+          <h5 *ngIf="users.length == 0" class="font-weight-bold">No result</h5>
+          <app-brief-detail-user-card *ngFor="let user of users" [user]="user">
           </app-brief-detail-user-card>
         </div>
       </div>

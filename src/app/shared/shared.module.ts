@@ -6,13 +6,15 @@ import { RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
+import { BriefDetailUserCardComponent } from './components/brief-detail-user-card/brief-detail-user-card.component';
 import { QuestionCardComponent } from './components/question-card/question-card.component';
 import { UserProfileOverviewComponent } from './components/user-profile-overview/user-profile-overview.component';
 
 @NgModule({
   declarations: [
     UserProfileOverviewComponent,
-    QuestionCardComponent
+    QuestionCardComponent,
+    BriefDetailUserCardComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { UserProfileOverviewComponent } from './components/user-profile-overview
     MatTabsModule,
     InfiniteScrollModule,
     UserProfileOverviewComponent,
-    QuestionCardComponent
+    QuestionCardComponent,
+    BriefDetailUserCardComponent
   ]
 })
 export class SharedModule { }
