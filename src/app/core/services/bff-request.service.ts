@@ -6,7 +6,9 @@ import { UrlUtils } from 'src/app/utils/url-utils';
 import { environment } from 'src/environments/environment';
 
 import { BffRequest } from '../models/bff-request.interface';
+import { FilterMode } from '../models/filter-mode.interface';
 import { Pagination } from '../models/pagination.interface';
+import { SortMode } from '../models/sort-mode.interface';
 
 @Injectable()
 export class BffRequestService {
@@ -22,14 +24,24 @@ export class BffRequestService {
     size: 15
   };
 
+  private readonly defaultSortMode: SortMode = {
+    sortBy: 'createdAt',
+    isSortAscending: false
+  };
+
   constructor(private http: HttpClient) { }
 
   getSentBffRequests(
     userId: number,
-    pagination: Pagination = this.defaultPagination): Observable<BffRequest[]> {
+    pagination: Pagination = this.defaultPagination,
+    sortMode: SortMode = this.defaultSortMode,
+    filterMode?: FilterMode
+  ): Observable<BffRequest[]> {
     const params = new ParamsBuilder()
       .setParam('type', 'sent')
       .applyPagination(pagination)
+      .applySort(sortMode)
+      .applyFilter(filterMode)
       .build();
 
     const url = UrlUtils.resolvePathVariables(this.bffRequestsUrl, { userId });
@@ -38,10 +50,15 @@ export class BffRequestService {
 
   getReceivedBffRequests(
     userId: number,
-    pagination: Pagination = this.defaultPagination): Observable<BffRequest[]> {
+    pagination: Pagination = this.defaultPagination,
+    sortMode: SortMode = this.defaultSortMode,
+    filterMode?: FilterMode
+  ): Observable<BffRequest[]> {
     const params = new ParamsBuilder()
       .setParam('type', 'received')
       .applyPagination(pagination)
+      .applySort(sortMode)
+      .applyFilter(filterMode)
       .build();
 
     const url = UrlUtils.resolvePathVariables(this.bffRequestsUrl, { userId });

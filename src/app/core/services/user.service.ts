@@ -5,7 +5,9 @@ import { ParamsBuilder } from 'src/app/utils/params-builder';
 import { UrlUtils } from 'src/app/utils/url-utils';
 import { environment } from 'src/environments/environment';
 
+import { FilterMode } from '../models/filter-mode.interface';
 import { Pagination } from '../models/pagination.interface';
+import { SortMode } from '../models/sort-mode.interface';
 import { User } from '../models/user.interface';
 
 @Injectable()
@@ -19,23 +21,42 @@ export class UserService {
 
   private readonly defaultPagination: Pagination = {
     page: 0,
-    size: 15
+    size: 10
+  };
+
+  private readonly defaultSortMode: SortMode = {
+    sortBy: 'createdAt',
+    isSortAscending: false
   };
 
   constructor(private http: HttpClient) { }
 
-  getFollowing(id: number, pagination: Pagination = this.defaultPagination): Observable<User[]> {
+  getFollowing(
+    id: number,
+    pagination: Pagination = this.defaultPagination,
+    sortMode: SortMode = this.defaultSortMode,
+    filterMode?: FilterMode
+  ): Observable<User[]> {
     const params = new ParamsBuilder()
       .applyPagination(pagination)
+      .applySort(sortMode)
+      .applyFilter(filterMode)
       .build();
 
     const url = UrlUtils.resolvePathVariables(this.followingUrl, { id });
     return this.http.get<User[]>(`${url}`, { params });
   }
 
-  getFollowers(id: number, pagination: Pagination = this.defaultPagination): Observable<User[]> {
+  getFollowers(
+    id: number,
+    pagination: Pagination = this.defaultPagination,
+    sortMode: SortMode = this.defaultSortMode,
+    filterMode?: FilterMode
+  ): Observable<User[]> {
     const params = new ParamsBuilder()
       .applyPagination(pagination)
+      .applySort(sortMode)
+      .applyFilter(filterMode)
       .build();
 
     const url = UrlUtils.resolvePathVariables(this.followersUrl, { id });
@@ -51,10 +72,17 @@ export class UserService {
     return this.http.post<User>(url, null);
   }
 
-  searchUsers(value: string, pagination: Pagination = this.defaultPagination): Observable<User[]> {
+  searchUsers(
+    value: string,
+    pagination: Pagination = this.defaultPagination,
+    sortMode: SortMode = this.defaultSortMode,
+    filterMode?: FilterMode
+  ): Observable<User[]> {
     const params = new ParamsBuilder()
-      .applyPagination(pagination)
       .setParam('username', value)
+      .applyPagination(pagination)
+      .applySort(sortMode)
+      .applyFilter(filterMode)
       .build();
 
     return this.http.get<User[]>(this.searchUrl, { params });

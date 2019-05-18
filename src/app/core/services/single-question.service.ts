@@ -5,8 +5,10 @@ import { ParamsBuilder } from 'src/app/utils/params-builder';
 import { UrlUtils } from 'src/app/utils/url-utils';
 import { environment } from 'src/environments/environment';
 
+import { FilterMode } from '../models/filter-mode.interface';
 import { Pagination } from '../models/pagination.interface';
 import { SingleQuestion } from '../models/single-question.interface';
+import { SortMode } from '../models/sort-mode.interface';
 
 @Injectable()
 export class SingleQuestionService {
@@ -21,15 +23,24 @@ export class SingleQuestionService {
     size: 15
   };
 
+  private readonly defaultSortMode: SortMode = {
+    sortBy: 'createdAt',
+    isSortAscending: false
+  };
+
   constructor(private http: HttpClient) { }
 
   getSingleQuestions(
     userId: number,
     answered: boolean = false,
-    pagination: Pagination = this.defaultPagination): Observable<SingleQuestion[]> {
+    pagination: Pagination = this.defaultPagination,
+    sortMode: SortMode = this.defaultSortMode,
+    filterMode?: FilterMode): Observable<SingleQuestion[]> {
     const params = new ParamsBuilder()
       .setParam('answered', answered.toString())
       .applyPagination(pagination)
+      .applySort(sortMode)
+      .applyFilter(filterMode)
       .build();
 
     const url = UrlUtils.resolvePathVariables(this.singleQuestionsUrl, { userId });
