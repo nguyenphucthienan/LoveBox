@@ -19,7 +19,7 @@
     </form>
   </div>
 </div>
-<div *ngIf="singleQuestions.length > 0" class="dropdown-divider mt-3 mb-3"></div>
+<hr>
 <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
   (scrolled)="onScrollDown()">
   <app-question-card *ngFor="let singleQuestion of singleQuestions" [singleQuestion]="singleQuestion">
