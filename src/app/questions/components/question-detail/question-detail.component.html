@@ -11,13 +11,15 @@
             <div class="d-flex flex-row align-items-center">
               <div class="d-flex flex-column justify-content-center align-items-center">
                 <img [src]="singleQuestion.answerer.photoUrl || defaultPhotoUrl" class="profile-img">
-                <strong class="mt-2 username-text"
-                  [routerLink]="['/users', singleQuestion.answerer.id]">@{{ singleQuestion.answerer.username }}
-                </strong>
               </div>
-              <div class="ml-3">
+              <div class="text-container">
                 <p class="font-weight-bold text-break">{{ singleQuestion.questionText }}</p>
-                <p class="text-break">{{ singleQuestion.answerText }}</p>
+                <p>
+                  <strong class="mt-2 username-text"
+                    [routerLink]="['/users', singleQuestion.answerer.id]">@{{ singleQuestion.answerer.username }}
+                  </strong>
+                  <span class="text-break">{{ singleQuestion.answerText }}</span>
+                </p>
                 <div class="date-time-text">{{ singleQuestion.createdAt | date:'medium' }}</div>
               </div>
             </div>

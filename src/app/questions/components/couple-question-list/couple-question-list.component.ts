@@ -11,8 +11,9 @@ import { User } from 'src/app/core/models/user.interface';
 })
 export class CoupleQuestionListComponent implements OnInit {
 
-  coupleQuestions: CoupleQuestion[];
+  coupleQuestions: CoupleQuestion[] = [];
   pagination: Pagination;
+  loading = true;
 
   @Input() user: User;
 
@@ -23,6 +24,7 @@ export class CoupleQuestionListComponent implements OnInit {
       .subscribe((result: any) => {
         this.coupleQuestions = result.content;
         this.pagination = result.pagination;
+        this.loading = false;
       });
   }
 

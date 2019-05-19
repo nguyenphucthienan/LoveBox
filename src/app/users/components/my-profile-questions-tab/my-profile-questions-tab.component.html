@@ -1,5 +1,8 @@
 <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
   (scrolled)="onScrollDown()">
+  <p *ngIf="!loading && singleQuestions.length <= 0" class="font-weight-bold">
+    There is no question
+  </p>
   <app-question-card *ngFor="let singleQuestion of singleQuestions" [singleQuestion]="singleQuestion">
   </app-question-card>
 </div>

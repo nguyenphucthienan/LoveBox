@@ -17,6 +17,8 @@ export class MyProfileBffTabComponent implements OnInit {
 
   @Input() myUser: User;
 
+  loading = true;
+
   receivedBffRequests: BffRequest[] = [];
   bffRequestPagination: Pagination;
 
@@ -40,6 +42,7 @@ export class MyProfileBffTabComponent implements OnInit {
       .subscribe((result: any) => {
         this.receivedBffRequests = result.content;
         this.bffRequestPagination = result.pagination;
+        this.loading = false;
       });
   }
 

@@ -2,20 +2,18 @@
   <div class="card-header indigo white-text py-1">
   </div>
   <div class="card-body">
-    <div class="row">
-      <div class="col-md-2 col-3 d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex flex-row align-items-center">
+      <div class="d-flex flex-column justify-content-center align-items-center">
         <img [src]="singleQuestion.answerer.photoUrl || defaultPhotoUrl" class="profile-img">
-        <strong class="mt-2 text-break username-text"
-          [routerLink]="['/users', singleQuestion.answerer.id, 'single-questions', singleQuestion.id]">
-          @{{ singleQuestion.answerer.username }}
-        </strong>
       </div>
-      <div class="col-md-10 col-9 d-flex flex-column justify-content-between">
-        <p class="question-text"
-          [routerLink]="['/users', singleQuestion.answerer.id, 'single-questions', singleQuestion.id]">
-          <strong class="text-break">{{ singleQuestion.questionText }}</strong>
+      <div class="text-container">
+        <p class="font-weight-bold text-break">{{ singleQuestion.questionText }}</p>
+        <p>
+          <strong class="mt-2 username-text"
+            [routerLink]="['/users', singleQuestion.answerer.id]">@{{ singleQuestion.answerer.username }}
+          </strong>
+          <span class="text-break">{{ singleQuestion.answerText }}</span>
         </p>
-        <p class="text-break">{{ singleQuestion.answerText }}</p>
         <div class="date-time-text">{{ singleQuestion.createdAt | date:'medium' }}</div>
       </div>
     </div>

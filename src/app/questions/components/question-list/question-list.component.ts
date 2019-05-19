@@ -11,8 +11,9 @@ import { SingleQuestionService } from 'src/app/core/services/single-question.ser
 })
 export class QuestionListComponent implements OnInit {
 
-  singleQuestions: SingleQuestion[];
+  singleQuestions: SingleQuestion[] = [];
   pagination: Pagination;
+  loading = true;
 
   @Input() user: User;
 
@@ -23,6 +24,7 @@ export class QuestionListComponent implements OnInit {
       .subscribe((result: any) => {
         this.singleQuestions = result.content;
         this.pagination = result.pagination;
+        this.loading = false;
       });
   }
 

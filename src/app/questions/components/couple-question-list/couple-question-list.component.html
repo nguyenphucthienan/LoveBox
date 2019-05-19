@@ -1,5 +1,8 @@
 <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
   (scrolled)="onScrollDown()">
+  <p *ngIf="!loading && coupleQuestions.length <= 0" class="font-weight-bold">
+    You have not received any question
+  </p>
   <app-unanswered-couple-question-card *ngFor="let coupleQuestion of coupleQuestions" [user]="user"
     [coupleQuestion]="coupleQuestion">
   </app-unanswered-couple-question-card>

@@ -15,6 +15,7 @@ export class MyProfileQuestionsTabComponent implements OnInit {
 
   singleQuestions: SingleQuestion[] = [];
   pagination: Pagination;
+  loading = true;
 
   constructor(private singleQuestionService: SingleQuestionService) { }
 
@@ -23,6 +24,7 @@ export class MyProfileQuestionsTabComponent implements OnInit {
       .subscribe((result: any) => {
         this.singleQuestions = result.content;
         this.pagination = result.pagination;
+        this.loading = false;
       });
   }
 

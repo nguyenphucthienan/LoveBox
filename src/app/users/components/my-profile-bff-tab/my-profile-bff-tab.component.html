@@ -1,6 +1,6 @@
 <ng-container *ngIf="!myUser.bffDetail">
-  <p *ngIf="receivedBffRequests.length <= 0" class="font-weight-bold">
-    You are not received any BFF request
+  <p *ngIf="!loading && receivedBffRequests.length <= 0" class="font-weight-bold">
+    You have not received any BFF request
   </p>
   <h5 *ngIf="receivedBffRequests.length > 0" class="h5">Received BFF Request(s):</h5>
   <div *ngIf="!myUser.bffDetail">

@@ -18,6 +18,7 @@ export class UserProfileQuestionsTabComponent implements OnInit, OnChanges {
   askForm: FormGroup;
   singleQuestions: SingleQuestion[] = [];
   pagination: Pagination;
+  loading = true;
 
   constructor(
     private fb: FormBuilder,
@@ -37,6 +38,7 @@ export class UserProfileQuestionsTabComponent implements OnInit, OnChanges {
         .subscribe((result: any) => {
           this.singleQuestions = result.content;
           this.pagination = result.pagination;
+          this.loading = false;
         });
     }
   }
