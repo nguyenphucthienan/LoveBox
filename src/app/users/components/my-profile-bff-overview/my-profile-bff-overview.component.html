@@ -13,7 +13,7 @@
       <div class="d-flex flex-column justify-content-center align-items-center ">
         <mdb-icon fas icon="heart" size="3x" class="pink-text animated bounceIn infinite"></mdb-icon>
         <h5 class="h5 indigo-text text-center mt-2"><strong>{{ daysPassed }} days</strong></h5>
-        <button mdbBtn type="submit" size="sm" color="light" mdbWavesEffect (click)="breakUp.emit($event)">
+        <button mdbBtn type="submit" size="sm" color="light" mdbWavesEffect (click)="openBreakUpModal()">
           <mdb-icon fas icon="heart-broken" class="mr-1"></mdb-icon>Break up
         </button>
       </div>

@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
       <div *ngIf="!loading && existSentRequest">
-        <p class="info-text">You has sent a BFF request to this user</p>
+        <p class="font-weight-bold">You has sent a BFF request to this user</p>
         <p>{{ existSentRequest.text }}</p>
         <div class="date-time-text">{{ existSentRequest.createdAt | date:'medium' }}</div>
       </div>

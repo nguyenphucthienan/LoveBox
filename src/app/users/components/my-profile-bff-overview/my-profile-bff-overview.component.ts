@@ -1,8 +1,11 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
 import { BffDetail } from 'src/app/core/models/bff-detail.interface';
 import { User } from 'src/app/core/models/user.interface';
 import { DateTimeUtils } from 'src/app/utils/datetime-utils';
 import { environment } from 'src/environments/environment';
+
+import { BreakUpModalComponent } from '../../modals/break-up-modal/break-up-modal.component';
 
 @Component({
   selector: 'app-my-profile-bff-overview',
@@ -19,7 +22,9 @@ export class MyProfileBffOverviewComponent implements OnInit, OnChanges {
   bffDetail: BffDetail;
   daysPassed: number;
 
-  constructor() { }
+  modalRef: MDBModalRef;
+
+  constructor(private modalService: MDBModalService) { }
 
   ngOnInit() {
   }
@@ -32,6 +37,27 @@ export class MyProfileBffOverviewComponent implements OnInit, OnChanges {
       this.bffDetail.firstUser = this.user.bffDetail.secondUser;
       this.bffDetail.secondUser = this.user.bffDetail.firstUser;
     }
+  }
+
+  openBreakUpModal() {
+    this.modalRef = this.modalService.show(BreakUpModalComponent, {
+      backdrop: true,
+      keyboard: true,
+      focus: true,
+      show: false,
+      ignoreBackdropClick: true,
+      class: 'modal-dialog-centered',
+      containerClass: 'top',
+      animated: true
+    });
+
+    this.modalRef.content.breakUp
+      .subscribe(() => this.onBreakUp());
+  }
+
+  onBreakUp() {
+    this.breakUp.emit();
+    this.modalRef.hide();
   }
 
 }

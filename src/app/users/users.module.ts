@@ -16,6 +16,7 @@ import {
 } from './components/user-profile-questions-tab/user-profile-questions-tab.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { BffRequestModalComponent } from './modals/bff-request-modal/bff-request-modal.component';
+import { BreakUpModalComponent } from './modals/break-up-modal/break-up-modal.component';
 import { UsersRoutingModule } from './users-routing.module';
 
 @NgModule({
@@ -30,6 +31,7 @@ import { UsersRoutingModule } from './users-routing.module';
     MyProfileBffOverviewComponent,
     MyProfileBffRequestCardComponent,
     BffRequestModalComponent,
+    BreakUpModalComponent,
     SearchUserComponent
   ],
   imports: [
@@ -37,7 +39,8 @@ import { UsersRoutingModule } from './users-routing.module';
     UsersRoutingModule
   ],
   entryComponents: [
-    BffRequestModalComponent
+    BffRequestModalComponent,
+    BreakUpModalComponent
   ]
 })
 export class UsersModule { }
