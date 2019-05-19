@@ -5,11 +5,11 @@ import { User } from 'src/app/core/models/user.interface';
 import { SingleQuestionService } from 'src/app/core/services/single-question.service';
 
 @Component({
-  selector: 'app-questions-list',
-  templateUrl: './questions-list.component.html',
-  styleUrls: ['./questions-list.component.scss']
+  selector: 'app-news-feed-question-list',
+  templateUrl: './news-feed-question-list.component.html',
+  styleUrls: ['./news-feed-question-list.component.scss']
 })
-export class QuestionsListComponent implements OnInit {
+export class NewsFeedQuestionListComponent implements OnInit {
 
   singleQuestions: SingleQuestion[];
   pagination: Pagination;
@@ -19,7 +19,7 @@ export class QuestionsListComponent implements OnInit {
   constructor(private singleQuestionService: SingleQuestionService) { }
 
   ngOnInit() {
-    this.singleQuestionService.getSingleQuestions(this.user.id, false)
+    this.singleQuestionService.getSingleQuestionsInNewsFeed(this.user.id)
       .subscribe((result: any) => {
         this.singleQuestions = result.content;
         this.pagination = result.pagination;
@@ -29,7 +29,7 @@ export class QuestionsListComponent implements OnInit {
   onScrollDown() {
     if (this.pagination && this.pagination.page < this.pagination.totalPages) {
       this.pagination.page += 1;
-      this.singleQuestionService.getSingleQuestions(this.user.id, false, this.pagination)
+      this.singleQuestionService.getSingleQuestionsInNewsFeed(this.user.id, this.pagination)
         .subscribe((result: any) => {
           this.singleQuestions = [...this.singleQuestions, ...result.content];
           this.pagination = result.pagination;

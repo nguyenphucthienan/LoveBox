@@ -13,6 +13,7 @@ import { SortMode } from '../models/sort-mode.interface';
 @Injectable()
 export class CoupleQuestionService {
 
+  private readonly singleQuestionsInNewsFeedUrl = `${environment.apiUrl}/users/{userId}/couple-questions/news-feed`;
   private readonly coupleQuestionsUrl = `${environment.apiUrl}/users/{userId}/couple-questions`;
   private readonly coupleQuestionUrl = `${environment.apiUrl}/users/{userId}/couple-questions/{id}`;
   private readonly answerCoupleQuestionUrl = `${environment.apiUrl}/users/{userId}/couple-questions/{id}/answer`;
@@ -29,6 +30,21 @@ export class CoupleQuestionService {
   };
 
   constructor(private http: HttpClient) { }
+
+  getCoupleQuestionsInNewsFeed(
+    userId: number,
+    pagination: Pagination = this.defaultPagination,
+    sortMode: SortMode = this.defaultSortMode,
+    filterMode?: FilterMode): Observable<CoupleQuestion[]> {
+    const params = new ParamsBuilder()
+      .applyPagination(pagination)
+      .applySort(sortMode)
+      .applyFilter(filterMode)
+      .build();
+
+    const url = UrlUtils.resolvePathVariables(this.singleQuestionsInNewsFeedUrl, { userId });
+    return this.http.get<CoupleQuestion[]>(`${url}`, { params });
+  }
 
   getCoupleQuestions(
     userId: number,

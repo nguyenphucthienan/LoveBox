@@ -13,6 +13,7 @@ import { SortMode } from '../models/sort-mode.interface';
 @Injectable()
 export class SingleQuestionService {
 
+  private readonly singleQuestionsInNewsFeedUrl = `${environment.apiUrl}/users/{userId}/single-questions/news-feed`;
   private readonly singleQuestionsUrl = `${environment.apiUrl}/users/{userId}/single-questions`;
   private readonly singleQuestionUrl = `${environment.apiUrl}/users/{userId}/single-questions/{id}`;
   private readonly answerSingleQuestionUrl = `${environment.apiUrl}/users/{userId}/single-questions/{id}/answer`;
@@ -29,6 +30,21 @@ export class SingleQuestionService {
   };
 
   constructor(private http: HttpClient) { }
+
+  getSingleQuestionsInNewsFeed(
+    userId: number,
+    pagination: Pagination = this.defaultPagination,
+    sortMode: SortMode = this.defaultSortMode,
+    filterMode?: FilterMode): Observable<SingleQuestion[]> {
+    const params = new ParamsBuilder()
+      .applyPagination(pagination)
+      .applySort(sortMode)
+      .applyFilter(filterMode)
+      .build();
+
+    const url = UrlUtils.resolvePathVariables(this.singleQuestionsInNewsFeedUrl, { userId });
+    return this.http.get<SingleQuestion[]>(`${url}`, { params });
+  }
 
   getSingleQuestions(
     userId: number,

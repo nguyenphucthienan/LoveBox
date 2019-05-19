@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FollowingModule } from './following/following.module';
+import { NewsFeedModule } from './news-feed/news-feed.module';
 import { PublicModule } from './public/public.module';
 import { QuestionsModule } from './questions/questions.module';
 import { SharedModule } from './shared/shared.module';
@@ -19,6 +20,7 @@ import { UsersModule } from './users/users.module';
     CoreModule,
     SharedModule,
     PublicModule,
+    NewsFeedModule,
     QuestionsModule,
     UsersModule,
     FollowingModule,
