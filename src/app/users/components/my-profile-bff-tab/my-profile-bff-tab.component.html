@@ -5,7 +5,7 @@
   <h5 *ngIf="receivedBffRequests.length > 0" class="h5">Received BFF Request(s):</h5>
   <div *ngIf="!myUser.bffDetail">
     <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
-      (scrolled)="onScrollDown()">
+      (scrolled)="onBffRequestsScrollDown()">
       <app-my-profile-bff-request-card *ngFor="let bffRequest of receivedBffRequests" [bffRequest]="bffRequest"
         (approved)="approveRequest($event)" (rejected)="rejectRequest($event)">
       </app-my-profile-bff-request-card>
@@ -14,4 +14,11 @@
 </ng-container>
 <ng-container *ngIf="myUser.bffDetail">
   <app-my-profile-bff-overview [user]="myUser" (breakUp)="breakUp()"></app-my-profile-bff-overview>
+  <hr>
+  <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
+    (scrolled)="onCoupleQuestionsScrollDown()">
+    <app-couple-question-card *ngFor="let coupleQuestion of coupleQuestions" [user]="myUser"
+      [coupleQuestion]="coupleQuestion">
+    </app-couple-question-card>
+  </div>
 </ng-container>

@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BffRequest } from 'src/app/core/models/bff-request.interface';
+import { CoupleQuestion } from 'src/app/core/models/couple-question.interface';
 import { Pagination } from 'src/app/core/models/pagination.interface';
 import { User } from 'src/app/core/models/user.interface';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { BffRequestService } from 'src/app/core/services/bff-request.service';
+import { CoupleQuestionService } from 'src/app/core/services/couple-question.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -16,33 +18,38 @@ export class MyProfileBffTabComponent implements OnInit {
   @Input() myUser: User;
 
   receivedBffRequests: BffRequest[] = [];
-  pagination: Pagination;
+  bffRequestPagination: Pagination;
+
+  coupleQuestions: CoupleQuestion[] = [];
+  coupleQuestionPagination: Pagination;
 
   constructor(
     private userService: UserService,
     private bffRequestService: BffRequestService,
+    private couleQuestionService: CoupleQuestionService,
     private alertService: AlertService
   ) { }
 
   ngOnInit() {
     this.getReceivedBffRequests();
+    this.getCoupleQuestions();
   }
 
   getReceivedBffRequests() {
     this.bffRequestService.getReceivedBffRequests(this.myUser.id)
       .subscribe((result: any) => {
         this.receivedBffRequests = result.content;
-        this.pagination = result.pagination;
+        this.bffRequestPagination = result.pagination;
       });
   }
 
-  onScrollDown() {
-    if (this.pagination.page < this.pagination.totalPages) {
-      this.pagination.page += 1;
-      this.bffRequestService.getReceivedBffRequests(this.myUser.id, this.pagination)
+  onBffRequestsScrollDown() {
+    if (this.bffRequestPagination.page < this.bffRequestPagination.totalPages) {
+      this.bffRequestPagination.page += 1;
+      this.bffRequestService.getReceivedBffRequests(this.myUser.id, this.bffRequestPagination)
         .subscribe((result: any) => {
           this.receivedBffRequests = [...this.receivedBffRequests, ...result.content];
-          this.pagination = result.pagination;
+          this.bffRequestPagination = result.pagination;
         });
     }
   }
@@ -90,9 +97,23 @@ export class MyProfileBffTabComponent implements OnInit {
       .subscribe(user => this.myUser.bffDetail = user.bffDetail);
   }
 
-  // filterRejectedRequest(bffRequest: BffRequest) {
-  //   this.receivedBffRequests = this.receivedBffRequests
-  //     .filter(request => request.id !== bffRequest.id);
-  // }
+  getCoupleQuestions() {
+    this.couleQuestionService.getCoupleQuestions(this.myUser.id, true)
+      .subscribe((result: any) => {
+        this.coupleQuestions = result.content;
+        this.coupleQuestionPagination = result.pagination;
+      });
+  }
+
+  onCoupleQuestionsScrollDown() {
+    if (this.coupleQuestionPagination.page < this.coupleQuestionPagination.totalPages) {
+      this.coupleQuestionPagination.page += 1;
+      this.couleQuestionService.getCoupleQuestions(this.myUser.id, true, this.coupleQuestionPagination)
+        .subscribe((result: any) => {
+          this.coupleQuestions = [...this.coupleQuestions, ...result.content];
+          this.coupleQuestionPagination = result.pagination;
+        });
+    }
+  }
 
 }

@@ -60,7 +60,7 @@ export class QuestionDetailComponent implements OnInit {
 
   private updateValues() {
     this.isLoved = this.user.id && this.singleQuestion.loves.map(user => user.id).includes(this.user.id);
-    this.numOfLoves = this.singleQuestion.loveCount || this.singleQuestion.loves.length;
+    this.numOfLoves = this.singleQuestion.loves.length;
   }
 
 }
