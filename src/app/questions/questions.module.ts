@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { AnswerCoupleQuestionComponent } from './components/answer-couple-question/answer-couple-question.component';
 import { AnswerQuestionComponent } from './components/answer-question/answer-question.component';
+import { CoupleQuestionDetailComponent } from './components/couple-question-detail/couple-question-detail.component';
 import { CoupleQuestionListComponent } from './components/couple-question-list/couple-question-list.component';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
 import { QuestionListComponent } from './components/question-list/question-list.component';
@@ -22,7 +23,8 @@ import { QuestionsComponent } from './questions.component';
     QuestionDetailComponent,
     CoupleQuestionListComponent,
     UnansweredCoupleQuestionCardComponent,
-    AnswerCoupleQuestionComponent
+    AnswerCoupleQuestionComponent,
+    CoupleQuestionDetailComponent
   ],
   imports: [
     SharedModule,

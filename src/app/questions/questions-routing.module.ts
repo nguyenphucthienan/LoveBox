@@ -8,6 +8,7 @@ import { MyUserResolver } from '../core/resolvers/my-user.resolver';
 import { SingleQuestionResolver } from '../core/resolvers/single-question.resolver';
 import { AnswerCoupleQuestionComponent } from './components/answer-couple-question/answer-couple-question.component';
 import { AnswerQuestionComponent } from './components/answer-question/answer-question.component';
+import { CoupleQuestionDetailComponent } from './components/couple-question-detail/couple-question-detail.component';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
 import { QuestionsComponent } from './questions.component';
 
@@ -37,6 +38,16 @@ const routes: Routes = [
     resolve: {
       user: MyUserResolver,
       singleQuestion: SingleQuestionResolver
+    }
+  },
+  {
+    path: 'users/:userId/couple-questions/:id',
+    component: CoupleQuestionDetailComponent,
+    canActivate: [AuthRoleGuard],
+    data: { roles: [RoleName.USER] },
+    resolve: {
+      user: MyUserResolver,
+      coupleQuestion: CoupleQuestionResolver
     }
   },
   {

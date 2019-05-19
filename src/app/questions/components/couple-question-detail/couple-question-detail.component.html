@@ -1,0 +1,57 @@
+<div class="container question-container">
+  <div class="row">
+    <div class="col-lg-3 mt-lg-3">
+    </div>
+    <div class="col-lg-9 mt-lg-3">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-header indigo white-text py-1">
+          </div>
+          <div class="card-body">
+            <div class="d-flex flex-row align-items-center">
+              <div class="d-flex flex-column justify-content-center align-items-center">
+                <img [src]="coupleQuestion.firstAnswerer.photoUrl || defaultPhotoUrl" class="profile-img mb-2">
+                <mdb-icon fas icon="heart" class="pink-text animated bounceIn infinite"></mdb-icon>
+                <img [src]="coupleQuestion.secondAnswerer.photoUrl || defaultPhotoUrl" class="profile-img mt-2">
+              </div>
+              <div class="text-container">
+                <p class="font-weight-bold text-break">{{ coupleQuestion.questionText }}</p>
+                <p>
+                  <strong class="mt-2 text-break username-text"
+                    [routerLink]="['/users', coupleQuestion.firstAnswerer.id]">
+                    @{{ coupleQuestion.firstAnswerer.username }}
+                  </strong>
+                  <span class="text-break">{{ coupleQuestion.firstAnswerText }}</span>
+                </p>
+                <p>
+                  <strong class="mt-2 text-break username-text"
+                    [routerLink]="['/users', coupleQuestion.secondAnswerer.id]">
+                    @{{ coupleQuestion.secondAnswerer.username }}
+                  </strong>
+                  <span class="text-break">{{ coupleQuestion.secondAnswerText }}</span>
+                </p>
+                <div class="date-time-text">{{ coupleQuestion.createdAt | date:'medium' }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a type="button" class="btn-floating" (click)="loveQuestion()">
+              <i class="fa fa-lg fa-heart" [class.pink-color]="isLoved"></i>
+              {{ numOfLoves > 0 ? numOfLoves : null }}
+            </a>
+            <a type="button" class="btn-floating float-right"><i class="fa fa-lg fa-share-alt"></i></a>
+          </div>
+        </div>
+        <div *ngIf="coupleQuestion.loves.length > 0" class="card mt-4">
+          <div class="card-header indigo white-text py-1"></div>
+          <div class="card-body">
+            <p class="title-text">Who loves this question:</p>
+            <span class="username-text" *ngFor="let user of coupleQuestion.loves" [routerLink]="['/users', user.id]">
+              @{{ user.username }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

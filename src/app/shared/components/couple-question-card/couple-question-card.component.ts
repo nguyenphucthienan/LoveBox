@@ -67,7 +67,7 @@ export class CoupleQuestionCardComponent implements OnInit, OnChanges, OnDestroy
     this.isLoved = !this.isLoved;
 
     this.coupleQuestionService.loveOrUnloveCoupleQuestion(
-      this.currentUserId,
+      this.coupleQuestion.firstAnswerer.id,
       this.coupleQuestion.id
     ).subscribe((coupleQuestion: CoupleQuestion) => {
       this.coupleQuestion = coupleQuestion;

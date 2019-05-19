@@ -9,7 +9,8 @@
         <img [src]="coupleQuestion.secondAnswerer.photoUrl || defaultPhotoUrl" class="profile-img mt-2">
       </div>
       <div class="text-container">
-        <p class="question-text" [routerLink]="['/users', user.id, 'couple-questions', coupleQuestion.id]">
+        <p class="question-text"
+          [routerLink]="['/users', coupleQuestion.firstAnswerer.id, 'couple-questions', coupleQuestion.id]">
           <strong class="text-break">{{ coupleQuestion.questionText }}</strong>
         </p>
         <p>
