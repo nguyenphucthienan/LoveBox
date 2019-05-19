@@ -8,7 +8,7 @@
         <mdb-icon fas icon="heart" class="pink-text animated bounceIn infinite"></mdb-icon>
         <img [src]="coupleQuestion.secondAnswerer.photoUrl || defaultPhotoUrl" class="profile-img mt-2">
       </div>
-      <div class="col-md-10 col-9 d-flex flex-column">
+      <div class="col-md-10 col-9 d-flex flex-column justify-content-between">
         <p class="question-text"
           [routerLink]="['/users', coupleQuestion.firstAnswerer.id, 'single-questions', coupleQuestion.id]">
           <strong class="text-break">{{ coupleQuestion.questionText }}</strong>
