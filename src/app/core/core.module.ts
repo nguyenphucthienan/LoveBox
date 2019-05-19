@@ -14,6 +14,7 @@ import { UserResolver } from './resolvers/user.resolver';
 import { AlertService } from './services/alert.service';
 import { AuthService } from './services/auth.service';
 import { BffRequestService } from './services/bff-request.service';
+import { CoupleQuestionService } from './services/couple-question.service';
 import { SingleQuestionService } from './services/single-question.service';
 import { UserService } from './services/user.service';
 
@@ -51,6 +52,7 @@ const toastrOptions = {
     AlertService,
     UserService,
     SingleQuestionService,
+    CoupleQuestionService,
     BffRequestService,
     MyUserResolver,
     UserResolver,

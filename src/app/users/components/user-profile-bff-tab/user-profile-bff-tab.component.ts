@@ -4,6 +4,7 @@ import { BffRequest } from 'src/app/core/models/bff-request.interface';
 import { User } from 'src/app/core/models/user.interface';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { BffRequestService } from 'src/app/core/services/bff-request.service';
+import { CoupleQuestionService } from 'src/app/core/services/couple-question.service';
 
 @Component({
   selector: 'app-user-profile-bff-tab',
@@ -18,16 +19,22 @@ export class UserProfileBffTabComponent implements OnInit {
   loading = true;
   existSentRequest: BffRequest;
   requestForm: FormGroup;
+  askForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private bffRequestService: BffRequestService,
+    private coupleQuestionService: CoupleQuestionService,
     private alertService: AlertService
   ) { }
 
   ngOnInit() {
     this.requestForm = this.fb.group({
       text: ['', [Validators.required, Validators.maxLength(200)]]
+    });
+
+    this.askForm = this.fb.group({
+      questionText: ['', [Validators.required, Validators.maxLength(200)]]
     });
 
     if (!this.user.bffDetail) {
@@ -54,6 +61,12 @@ export class UserProfileBffTabComponent implements OnInit {
       || 200;
   }
 
+  getQuestionTextLength() {
+    return this.askForm.controls.questionText.value
+      && 200 - this.askForm.controls.questionText.value.length
+      || 200;
+  }
+
   sendRequest() {
     this.bffRequestService.createBffRequest(
       this.user.id,
@@ -65,6 +78,16 @@ export class UserProfileBffTabComponent implements OnInit {
         this.getExistBffRequest();
       },
       error => this.alertService.error('Send BFF request failed'));
+  }
+
+  sendQuestion() {
+    this.coupleQuestionService.createCoupleQuestion(
+      this.user.id,
+      this.askForm.controls.questionText.value
+    ).subscribe(question => {
+      this.alertService.success('Ask question successfully');
+      this.askForm.reset();
+    });
   }
 
 }
