@@ -11,5 +11,5 @@ export interface CoupleQuestion {
   secondAnswerText: string;
   answered: boolean;
   answeredAt: Date;
-  love: User[];
+  loves: User[];
 }

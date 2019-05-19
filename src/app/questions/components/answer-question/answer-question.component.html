@@ -1,34 +1,36 @@
 <div class="container answer-container">
   <div class="row">
-    <div class="col-lg-3 mt-3">
+    <div class="col-lg-3 mt-lg-3">
     </div>
-    <div class="col-lg-9 mt-3">
-      <div class="card">
-        <div class="card-header indigo white-text py-1">
-        </div>
-        <div class="card-body">
-          <ng-container *ngIf="!singleQuestion.answered">
-            <div class="font-weight-bold">{{ singleQuestion.questionText }}</div>
-            <form [formGroup]="answerForm" (ngSubmit)="answerQuestion()">
-              <div class="md-form">
-                <textarea type="text" id="answerText" formControlName="answerText"
-                  class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
-                <label for="answerText">Enter your answer</label>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <strong>{{ getAnswerTextLength() }}</strong>
-                <div class="text-right">
-                  <button mdbBtn type="submit" size="sm" color="pink" mdbWavesEffect [disabled]="answerForm.invalid">
-                    <mdb-icon fas icon="send" class="mr-1"></mdb-icon>Answer
-                  </button>
+    <div class="col-lg-9 mt-lg-3">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-header indigo white-text py-1">
+          </div>
+          <div class="card-body">
+            <ng-container *ngIf="!singleQuestion.answered">
+              <div class="font-weight-bold">{{ singleQuestion.questionText }}</div>
+              <form [formGroup]="answerForm" (ngSubmit)="answerQuestion()">
+                <div class="md-form">
+                  <textarea type="text" id="answerText" formControlName="answerText"
+                    class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
+                  <label for="answerText">Enter your answer</label>
                 </div>
-              </div>
-            </form>
-          </ng-container>
-          <ng-container *ngIf="singleQuestion.answered">
-            <p>Question has been answered</p>
-            <a [routerLink]="['/questions']">Back to Questions</a>
-          </ng-container>
+                <div class="d-flex justify-content-between align-items-center">
+                  <strong>{{ getAnswerTextLength() }}</strong>
+                  <div class="text-right">
+                    <button mdbBtn type="submit" size="sm" color="pink" mdbWavesEffect [disabled]="answerForm.invalid">
+                      <mdb-icon fas icon="send" class="mr-1"></mdb-icon>Answer
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </ng-container>
+            <ng-container *ngIf="singleQuestion.answered">
+              <p>Question has been answered</p>
+              <a [routerLink]="['/questions']">Back to Questions</a>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,39 @@
+<div class="card d-flex h-100 mb-4">
+  <div class="card-header indigo white-text py-1">
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2 col-3 d-flex flex-column justify-content-center align-items-center">
+        <img [src]="coupleQuestion.firstAnswerer.photoUrl || defaultPhotoUrl" class="profile-img mb-2">
+        <mdb-icon fas icon="heart" class="pink-text animated bounceIn infinite"></mdb-icon>
+        <img [src]="coupleQuestion.secondAnswerer.photoUrl || defaultPhotoUrl" class="profile-img mt-2">
+      </div>
+      <div class="col-md-10 col-9 d-flex flex-column">
+        <p class="question-text"
+          [routerLink]="['/users', coupleQuestion.firstAnswerer.id, 'single-questions', coupleQuestion.id]">
+          <strong class="text-break">{{ coupleQuestion.questionText }}</strong>
+        </p>
+        <p>
+          <strong class="mt-2 text-break username-text" [routerLink]="['/users', coupleQuestion.firstAnswerer.id]">
+            @{{ coupleQuestion.firstAnswerer.username }}
+          </strong>
+          <span class="text-break">{{ coupleQuestion.firstAnswerText }}</span>
+        </p>
+        <p>
+          <strong class="mt-2 text-break username-text" [routerLink]="['/users', coupleQuestion.secondAnswerer.id]">
+            @{{ coupleQuestion.secondAnswerer.username }}
+          </strong>
+          <span class="text-break">{{ coupleQuestion.secondAnswerText }}</span>
+        </p>
+        <div class="date-time-text">{{ coupleQuestion.createdAt | date:'medium' }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <a type="button" class="btn-floating" (click)="loveQuestion()">
+      <i class="fa fa-lg fa-heart" [class.pink-color]="isLoved"></i>
+      {{ numOfLoves > 0 ? numOfLoves : null }}
+    </a>
+    <a type="button" class="btn-floating float-right"><i class="fa fa-lg fa-share-alt"></i></a>
+  </div>
+</div>

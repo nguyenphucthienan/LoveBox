@@ -7,6 +7,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { BriefDetailUserCardComponent } from './components/brief-detail-user-card/brief-detail-user-card.component';
+import { CoupleQuestionCardComponent } from './components/couple-question-card/couple-question-card.component';
 import { QuestionCardComponent } from './components/question-card/question-card.component';
 import { UserProfileOverviewComponent } from './components/user-profile-overview/user-profile-overview.component';
 
@@ -14,7 +15,8 @@ import { UserProfileOverviewComponent } from './components/user-profile-overview
   declarations: [
     UserProfileOverviewComponent,
     QuestionCardComponent,
-    BriefDetailUserCardComponent
+    BriefDetailUserCardComponent,
+    CoupleQuestionCardComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,7 @@ import { UserProfileOverviewComponent } from './components/user-profile-overview
     InfiniteScrollModule,
     UserProfileOverviewComponent,
     QuestionCardComponent,
+    CoupleQuestionCardComponent,
     BriefDetailUserCardComponent
   ]
 })

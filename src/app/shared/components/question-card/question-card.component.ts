@@ -65,7 +65,7 @@ export class QuestionCardComponent implements OnInit, OnDestroy {
 
   private updateValues() {
     this.isLoved = this.currentUserId && this.singleQuestion.loves.map(user => user.id).includes(this.currentUserId);
-    this.numOfLoves = this.singleQuestion.loveCount || this.singleQuestion.loves.length;
+    this.numOfLoves = this.singleQuestion.loves.length;
   }
 
   ngOnDestroy() {
