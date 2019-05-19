@@ -7,8 +7,8 @@
         <div class="card-header indigo white-text py-1">
         </div>
         <div class="card-body">
-          <ng-container *ngIf="!singleQuestion.answered">
-            <div class="font-weight-bold">{{ singleQuestion.questionText }}</div>
+          <ng-container *ngIf="!coupleQuestion.answered">
+            <div class="font-weight-bold">{{ coupleQuestion.questionText }}</div>
             <form [formGroup]="answerForm" (ngSubmit)="answerQuestion()">
               <div class="md-form">
                 <textarea type="text" id="answerText" formControlName="answerText"
@@ -25,7 +25,7 @@
               </div>
             </form>
           </ng-container>
-          <ng-container *ngIf="singleQuestion.answered">
+          <ng-container *ngIf="coupleQuestion.answered">
             <p>Question has been answered</p>
             <a [routerLink]="['/questions']">Back to Questions</a>
           </ng-container>

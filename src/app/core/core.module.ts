@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 
 import { SharedModule } from '../shared/shared.module';
 import { AuthRoleGuard } from './guards/auth-role.guard';
+import { CoupleQuestionResolver } from './resolvers/couple-question.resolver';
 import { MyUserResolver } from './resolvers/my-user.resolver';
 import { SingleQuestionResolver } from './resolvers/single-question.resolver';
 import { UserResolver } from './resolvers/user.resolver';
@@ -56,7 +57,8 @@ const toastrOptions = {
     BffRequestService,
     MyUserResolver,
     UserResolver,
-    SingleQuestionResolver
+    SingleQuestionResolver,
+    CoupleQuestionResolver
   ]
 })
 export class CoreModule {

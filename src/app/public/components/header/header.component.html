@@ -20,7 +20,7 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <form class="form-inline waves-light" mdbWavesEffect (ngSubmit)="search(searchInput.value)">
+      <form *ngIf="isLoggedIn()" class="form-inline waves-light" mdbWavesEffect (ngSubmit)="search(searchInput.value)">
         <div class="input-group">
           <input #searchInput type="text" class="form-control" placeholder="username" aria-label="Search"
             aria-describedby="basic-addon1">

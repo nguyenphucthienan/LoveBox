@@ -11,6 +11,7 @@ import {
 import { UnansweredQuestionCardComponent } from './components/unanswered-question-card/unanswered-question-card.component';
 import { QuestionsRoutingModule } from './questions-routing.module';
 import { QuestionsComponent } from './questions.component';
+import { AnswerCoupleQuestionComponent } from './components/answer-couple-question/answer-couple-question.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { QuestionsComponent } from './questions.component';
     AnswerQuestionComponent,
     QuestionDetailComponent,
     CoupleQuestionListComponent,
-    UnansweredCoupleQuestionCardComponent
+    UnansweredCoupleQuestionCardComponent,
+    AnswerCoupleQuestionComponent
   ],
   imports: [
     SharedModule,

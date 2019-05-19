@@ -34,7 +34,8 @@
 <ng-container *ngIf="user.bffDetail">
   <app-user-profile-bff-overview [user]="user"></app-user-profile-bff-overview>
   <hr>
-  <div class="card mt-3 mb-3">
+  <div *ngIf="myUser.id !==user.bffDetail.firstUser.id && myUser.id !==user.bffDetail.secondUser.id"
+    class="card mt-3 mb-3">
     <div class="card-header indigo white-text py-1">
     </div>
     <div class="card-body">
