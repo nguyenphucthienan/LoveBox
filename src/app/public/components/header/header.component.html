@@ -19,7 +19,7 @@
         <a class="nav-link waves-light" mdbWavesEffect routerLink="/following">Following</a>
       </li>
     </ul>
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto nav-flex-icons">
       <form *ngIf="isLoggedIn()" class="form-inline waves-light" mdbWavesEffect (ngSubmit)="search(searchInput.value)">
         <div class="input-group">
           <input #searchInput type="text" class="form-control" placeholder="username" aria-label="Search"
@@ -37,8 +37,14 @@
       <li *ngIf="!isLoggedIn()" class="nav-item" routerLinkActive="active">
         <a class="nav-link waves-light" mdbWavesEffect routerLink="/login">Login</a>
       </li>
-      <li *ngIf="isLoggedIn()" class="nav-item" routerLinkActive="active">
-        <a class="nav-link waves-light" mdbWavesEffect (click)="logout()">Logout</a>
+      <li *ngIf="isLoggedIn()" class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+          <mdb-icon fas icon="user"></mdb-icon>{{ user?.username }}<span class="caret"></span>
+        </a>
+        <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/users/edit-info">Edit Info</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()">Logout</a>
+        </div>
       </li>
     </ul>
   </links>

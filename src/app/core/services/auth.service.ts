@@ -55,7 +55,8 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
-  private getMyUserInfo(token: string) {
+  getMyUserInfo() {
+    const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
     return this.http.get(`${this.AUTH_URL}/me`, { headers });
   }
