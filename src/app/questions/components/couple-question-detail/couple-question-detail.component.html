@@ -5,7 +5,7 @@
     <div class="col-lg-9 mt-lg-3">
       <div class="container-fluid">
         <div class="card">
-          <div class="card-header indigo white-text py-1">
+          <div class="card-header indigo white-text py-2">
           </div>
           <div class="card-body">
             <div class="d-flex flex-row align-items-center">
@@ -43,7 +43,7 @@
           </div>
         </div>
         <div *ngIf="coupleQuestion.loves.length > 0" class="card mt-4">
-          <div class="card-header indigo white-text py-1"></div>
+          <div class="card-header indigo white-text py-2"></div>
           <div class="card-body">
             <p class="title-text">Who loves this question:</p>
             <span class="username-text" *ngFor="let user of coupleQuestion.loves" [routerLink]="['/users', user.id]">

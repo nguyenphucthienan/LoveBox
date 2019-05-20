@@ -1,6 +1,6 @@
 <ng-container *ngIf="!user.bffDetail && !myUser.bffDetail">
   <div class="card mt-3 mb-3">
-    <div class="card-header indigo white-text">
+    <div class="card-header indigo white-text py-2">
     </div>
     <div class="card-body">
       <div *ngIf="!loading && existSentRequest">
@@ -36,7 +36,7 @@
   <hr>
   <div *ngIf="myUser.id !==user.bffDetail.firstUser.id && myUser.id !==user.bffDetail.secondUser.id"
     class="card mt-3 mb-3">
-    <div class="card-header indigo white-text py-1">
+    <div class="card-header indigo white-text py-2">
     </div>
     <div class="card-body">
       <form [formGroup]="askForm" (ngSubmit)="sendQuestion()">
@@ -59,7 +59,8 @@
   <hr>
   <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
     (scrolled)="onScrollDown()">
-    <app-couple-question-card *ngFor="let coupleQuestion of coupleQuestions" [user]="user" [coupleQuestion]="coupleQuestion">
+    <app-couple-question-card *ngFor="let coupleQuestion of coupleQuestions" [user]="user"
+      [coupleQuestion]="coupleQuestion">
     </app-couple-question-card>
   </div>
 </ng-container>
