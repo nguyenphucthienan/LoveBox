@@ -10,6 +10,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { BriefDetailUserCardComponent } from './components/brief-detail-user-card/brief-detail-user-card.component';
 import { CoupleQuestionCardComponent } from './components/couple-question-card/couple-question-card.component';
 import { PhotoUploaderComponent } from './components/photo-uploader/photo-uploader.component';
+import { PhotoViewUploadModalComponent } from './components/photo-view-upload-modal/photo-view-upload-modal.component';
 import { QuestionCardComponent } from './components/question-card/question-card.component';
 import { UserProfileOverviewComponent } from './components/user-profile-overview/user-profile-overview.component';
 
@@ -19,7 +20,8 @@ import { UserProfileOverviewComponent } from './components/user-profile-overview
     QuestionCardComponent,
     BriefDetailUserCardComponent,
     CoupleQuestionCardComponent,
-    PhotoUploaderComponent
+    PhotoUploaderComponent,
+    PhotoViewUploadModalComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,11 @@ import { UserProfileOverviewComponent } from './components/user-profile-overview
     QuestionCardComponent,
     CoupleQuestionCardComponent,
     BriefDetailUserCardComponent,
-    PhotoUploaderComponent
+    PhotoUploaderComponent,
+    PhotoViewUploadModalComponent
+  ],
+  entryComponents: [
+    PhotoViewUploadModalComponent
   ]
 })
 export class SharedModule { }

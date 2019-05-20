@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
 import { User } from 'src/app/core/models/user.interface';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { AuthService } from 'src/app/core/services/auth.service';
+import {
+  PhotoViewUploadModalComponent,
+} from 'src/app/shared/components/photo-view-upload-modal/photo-view-upload-modal.component';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,16 +17,20 @@ import { environment } from 'src/environments/environment';
 })
 export class UserEditInfoComponent implements OnInit {
 
+  private readonly uploadUserPhotoUrl = `${environment.apiUrl}/auth/me/photo`;
   readonly defaultPhotoUrl = environment.defaultUserPhotoUrl;
 
   myUser: User;
   updateInfoForm: FormGroup;
   changePasswordForm: FormGroup;
 
+  modalRef: MDBModalRef;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
+    private modalService: MDBModalService,
     private authService: AuthService,
     private alertService: AlertService
   ) { }
@@ -50,7 +58,21 @@ export class UserEditInfoComponent implements OnInit {
   }
 
   openUploadPhotoModal() {
-
+    this.modalRef = this.modalService.show(PhotoViewUploadModalComponent, {
+      backdrop: true,
+      keyboard: true,
+      focus: true,
+      show: false,
+      ignoreBackdropClick: true,
+      class: 'modal-md modal-dialog-centered',
+      containerClass: 'top',
+      animated: true,
+      data: {
+        title: 'Hotel Photo',
+        uploadUrl: this.uploadUserPhotoUrl,
+        photoUrl: this.myUser.photo && this.myUser.photo.url
+      }
+    });
   }
 
   updateInfo() {

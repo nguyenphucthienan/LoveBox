@@ -1,0 +1,20 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close pull-right" (click)="modalRef.hide()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title w-100" id="myModalLabel">{{ title }}</h4>
+  </div>
+  <div class="modal-body">
+    <p *ngIf="!photoUrl" class="text-center">No photo</p>
+    <img *ngIf="photoUrl" [src]="photoUrl" class="img-fluid photo">
+    <hr>
+    <p class="font-weight-bold">Upload new photo</p>
+    <app-photo-uploader [hasDropZone]="false" [uploadUrl]="uploadUrl" (uploadSucceed)="uploadSucceed($event)">
+    </app-photo-uploader>
+  </div>
+  <div class="modal-footer">
+    <button type="button" mdbBtn color="secondary" block="true" class="waves-light" (click)="modalRef.hide()"
+      mdbWavesEffect>Close</button>
+  </div>
+</div>

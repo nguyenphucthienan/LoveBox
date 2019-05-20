@@ -6,11 +6,10 @@
         <div class="card-header indigo white-text py-1">
         </div>
         <div class="card-body">
-          <div class="d-none d-lg-block d-xl-block">
-            <img *ngIf="myUser" [src]="myUser?.photo?.url || defaultPhotoUrl" class="img-fluid photo">
-            <hr>
+          <div class="d-flex justify-content-center align-items-center">
+            <img *ngIf="myUser" [src]="myUser?.photo?.url || defaultPhotoUrl" class="img-fluid rounded-circle photo">
           </div>
-          <button mdbBtn color="indigo" outline="true" rounded="true" block="true" class="waves-effect z-depth-0"
+          <button mdbBtn color="indigo" outline="true" rounded="true" block="true" class="waves-effect z-depth-0 mt-4"
             mdbWavesEffect (click)="openUploadPhotoModal()">
             Change Photo
           </button>
