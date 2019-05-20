@@ -1,0 +1,90 @@
+<div class="container edit-container">
+  <h1 class="text-center">Edit Info</h1>
+  <div class="row align-items-center mt-3">
+    <div class="col-lg-6 col-md-8 offset-lg-3 offset-md-2">
+      <div class="card">
+        <div class="card-header indigo white-text py-2">
+        </div>
+        <div class="card-body">
+          <form [formGroup]="updateInfoForm" (ngSubmit)="updateInfo()" class="text-center">
+            <div class="md-form">
+              <input type="text" id="email" formControlName="email" class="form-control" mdbInput>
+              <label for="email">Email</label>
+              <mdb-error *ngIf="updateInfoFormControlHasError('email', 'required')">Email is required</mdb-error>
+              <mdb-error *ngIf="updateInfoFormControlHasError('email', 'maxlength')">
+                Email must be at most 120 characters
+              </mdb-error>
+              <mdb-error
+                *ngIf="!updateInfoFormControlHasError('email', 'required') && updateInfoFormControlHasError('email', 'email')">
+                Email is not valid
+              </mdb-error>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <div class="md-form form-col">
+                  <input type="text" id="firstName" formControlName="firstName" class="form-control" mdbInput>
+                  <label for="firstName">First name</label>
+                  <mdb-error *ngIf="updateInfoFormControlHasError('firstName', 'required')">First name is required
+                  </mdb-error>
+                  <mdb-error
+                    *ngIf="updateInfoFormControlHasError('firstName', 'minlength') || updateInfoFormControlHasError('firstName', 'maxlength')">
+                    First name must be between 1-50 characters
+                  </mdb-error>
+                </div>
+              </div>
+              <div class="col">
+                <div class="md-form form-col">
+                  <input type="text" id="lastName" formControlName="lastName" class="form-control" mdbInput>
+                  <label for="lastName">Last name</label>
+                  <mdb-error *ngIf="updateInfoFormControlHasError('lastName', 'required')">Last name is required
+                  </mdb-error>
+                  <mdb-error
+                    *ngIf="updateInfoFormControlHasError('lastName', 'minlength') || updateInfoFormControlHasError('lastName', 'maxlength')">
+                    Last name must be between 1-50 characters
+                  </mdb-error>
+                </div>
+              </div>
+            </div>
+            <button mdbBtn color="indigo" outline="true" rounded="true" block="true"
+              class="mt-4 mb-2 waves-effect z-depth-0" mdbWavesEffect type="submit"
+              [disabled]="updateInfoForm.invalid">Save Changes</button>
+          </form>
+        </div>
+      </div>
+      <div class="card mt-4">
+        <div class="card-header indigo white-text py-2">
+        </div>
+        <div class="card-body">
+          <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()" class="text-center">
+            <div class="md-form">
+              <input type="password" id="newPassword" formControlName="newPassword" class="form-control" mdbInput>
+              <label for="newPassword">New password</label>
+              <mdb-error *ngIf="changePasswordFormControlHasError('newPassword', 'required')">
+                New password is required
+              </mdb-error>
+              <mdb-error
+                *ngIf="changePasswordFormControlHasError('newPassword', 'minlength') || changePasswordFormControlHasError('newPassword', 'maxlength')">
+                Password must be between 6-50 characters
+              </mdb-error>
+            </div>
+            <div class="md-form">
+              <input type="password" id="confirmNewPassword" formControlName="confirmNewPassword" class="form-control"
+                mdbInput>
+              <label for="confirmNewPassword">Confirm new password</label>
+              <mdb-error *ngIf="changePasswordFormControlHasError('confirmNewPassword', 'required')">
+                Confirm new password is required
+              </mdb-error>
+              <mdb-error
+                *ngIf="changePasswordForm.get('confirmNewPassword').touched && !changePasswordFormControlHasError('confirmNewPassword', 'required') && changePasswordForm.hasError('passwordMatch')">
+                Passwords do not match
+              </mdb-error>
+            </div>
+            <button mdbBtn color="indigo" outline="true" rounded="true" block="true"
+              class="mt-4 mb-2 waves-effect z-depth-0" mdbWavesEffect type="submit"
+              [disabled]="changePasswordForm.invalid">Change Password</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

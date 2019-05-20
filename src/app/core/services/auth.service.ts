@@ -11,7 +11,10 @@ import { User } from '../models/user.interface';
 @Injectable()
 export class AuthService {
 
-  private readonly AUTH_URL = `${environment.apiUrl}/auth`;
+  private readonly signUpUrl = `${environment.apiUrl}/auth/sign-up`;
+  private readonly signInUrl = `${environment.apiUrl}/auth/sign-in`;
+  private readonly meUrl = `${environment.apiUrl}/auth/me`;
+  private readonly changePasswordUrl = `${environment.apiUrl}/auth/me/password`;
 
   private jwtHelper = new JwtHelperService();
   private decodedToken: any;
@@ -35,11 +38,11 @@ export class AuthService {
   }
 
   register(user: User) {
-    return this.http.post(`${this.AUTH_URL}/sign-up`, user);
+    return this.http.post(this.signUpUrl, user);
   }
 
   login(model: { usernameOrEmail: string, password: string }) {
-    return this.http.post(`${this.AUTH_URL}/sign-in`, model)
+    return this.http.post(this.signInUrl, model)
       .pipe(
         map(({ accessToken }: any) => {
           if (accessToken) {
@@ -58,7 +61,19 @@ export class AuthService {
   getMyUserInfo() {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
-    return this.http.get(`${this.AUTH_URL}/me`, { headers });
+    return this.http.get(this.meUrl, { headers });
+  }
+
+  updateUserInfo(updateModel: any) {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+    return this.http.put(this.meUrl, updateModel, { headers });
+  }
+
+  changeUserPassword(changePasswordModel: any) {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+    return this.http.put(this.changePasswordUrl, changePasswordModel, { headers });
   }
 
   private changeDecodedToken(token: string) {
