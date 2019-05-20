@@ -1,7 +1,7 @@
 <div class="card d-flex h-100 mb-3">
   <div class="card-body">
     <div class="d-flex justify-content-start align-items-center">
-      <img [src]="user.photoUrl || defaultPhotoUrl" class="profile-img">
+      <img [src]="user.photo?.url || defaultPhotoUrl" class="profile-img">
       <div class="ml-3">
         <div class="username-text" [routerLink]="['/users', user.id]">@<strong>{{ user.username }}</strong></div>
         {{ user.firstName }} {{ user.lastName }}

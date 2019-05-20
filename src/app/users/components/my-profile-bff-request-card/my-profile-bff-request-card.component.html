@@ -4,7 +4,7 @@
   <div class="card-body">
     <div class="d-flex flex-row">
       <div class="d-flex flex-column justify-content-center align-items-center">
-        <img [src]="bffRequest.fromUser.photoUrl || defaultPhotoUrl" class="profile-img">
+        <img [src]="bffRequest.fromUser.photo?.url || defaultPhotoUrl" class="profile-img">
         <strong class="username-text mt-2" [routerLink]="['/users', bffRequest.fromUser.id]">
           @{{ bffRequest.fromUser.username }}
         </strong>

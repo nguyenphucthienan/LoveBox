@@ -10,9 +10,9 @@
           <div class="card-body">
             <div class="d-flex flex-row align-items-center">
               <div class="d-flex flex-column justify-content-center align-items-center">
-                <img [src]="coupleQuestion.firstAnswerer.photoUrl || defaultPhotoUrl" class="profile-img mb-2">
+                <img [src]="coupleQuestion.firstAnswerer.photo?.url || defaultPhotoUrl" class="profile-img mb-2">
                 <mdb-icon fas icon="heart" class="pink-text animated bounceIn infinite"></mdb-icon>
-                <img [src]="coupleQuestion.secondAnswerer.photoUrl || defaultPhotoUrl" class="profile-img mt-2">
+                <img [src]="coupleQuestion.secondAnswerer.photo?.url || defaultPhotoUrl" class="profile-img mt-2">
               </div>
               <div class="text-container">
                 <p class="font-weight-bold text-break">{{ coupleQuestion.questionText }}</p>

@@ -1,9 +1,25 @@
 <div class="container edit-container">
   <h1 class="text-center">Edit Info</h1>
-  <div class="row align-items-center mt-3">
-    <div class="col-lg-6 col-md-8 offset-lg-3 offset-md-2">
+  <div class="row justify-content-center">
+    <div class="col-lg-3 mt-lg-3 mt-4">
       <div class="card">
-        <div class="card-header indigo white-text py-2">
+        <div class="card-header indigo white-text py-1">
+        </div>
+        <div class="card-body">
+          <div class="d-none d-lg-block d-xl-block">
+            <img *ngIf="myUser" [src]="myUser?.photo?.url || defaultPhotoUrl" class="img-fluid photo">
+            <hr>
+          </div>
+          <button mdbBtn color="indigo" outline="true" rounded="true" block="true" class="waves-effect z-depth-0"
+            mdbWavesEffect (click)="openUploadPhotoModal()">
+            Change Photo
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mt-lg-3 mt-4">
+      <div class="card">
+        <div class="card-header indigo white-text py-1">
         </div>
         <div class="card-body">
           <form [formGroup]="updateInfoForm" (ngSubmit)="updateInfo()" class="text-center">
@@ -52,7 +68,7 @@
         </div>
       </div>
       <div class="card mt-4">
-        <div class="card-header indigo white-text py-2">
+        <div class="card-header indigo white-text py-1">
         </div>
         <div class="card-body">
           <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()" class="text-center">

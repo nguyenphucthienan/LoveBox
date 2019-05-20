@@ -4,7 +4,7 @@
   <div class="card-body">
     <div class="d-flex flex-row justify-content-around align-items-center">
       <div class="d-flex flex-column justify-content-center align-items-center">
-        <img [src]="bffDetail.firstUser.photoUrl || defaultPhotoUrl" class="img-fluid rounded-circle">
+        <img [src]="bffDetail.firstUser.photo?.url || defaultPhotoUrl" class="img-fluid rounded-circle">
         <div class="mt-3 text-center">
           <div class="username-text">@{{ bffDetail.firstUser.username }}</div>
           <div class="name-text">{{ bffDetail.firstUser.firstName }} {{ bffDetail.firstUser.lastName }}</div>
@@ -18,7 +18,7 @@
         </button>
       </div>
       <div class="d-flex flex-column justify-content-center align-items-center">
-        <img [src]="bffDetail.secondUser.photoUrl || defaultPhotoUrl" class="img-fluid rounded-circle">
+        <img [src]="bffDetail.secondUser.photo?.url || defaultPhotoUrl" class="img-fluid rounded-circle">
         <div class="mt-3 text-center">
           <div class="username-text" [routerLink]="['/users', bffDetail.secondUser.id]">
             @{{ bffDetail.secondUser.username }}

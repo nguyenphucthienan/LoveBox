@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/core/models/user.interface';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-edit-info',
@@ -11,6 +13,9 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class UserEditInfoComponent implements OnInit {
 
+  readonly defaultPhotoUrl = environment.defaultUserPhotoUrl;
+
+  myUser: User;
   updateInfoForm: FormGroup;
   changePasswordForm: FormGroup;
 
@@ -35,13 +40,17 @@ export class UserEditInfoComponent implements OnInit {
     }, { validator: [this.passwordMatchValidator] });
 
     this.route.data.subscribe(data => {
-      const user = data.myUser;
+      this.myUser = data.myUser;
       this.updateInfoForm.patchValue({
-        email: user.email,
-        firstName: user.firstName,
-        lastName: user.lastName
+        email: this.myUser.email,
+        firstName: this.myUser.firstName,
+        lastName: this.myUser.lastName
       });
     });
+  }
+
+  openUploadPhotoModal() {
+
   }
 
   updateInfo() {

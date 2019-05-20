@@ -10,7 +10,7 @@
           <div class="card-body">
             <div class="d-flex flex-row align-items-center">
               <div class="d-flex flex-column justify-content-center align-items-center">
-                <img [src]="singleQuestion.answerer.photoUrl || defaultPhotoUrl" class="profile-img">
+                <img [src]="singleQuestion.answerer.photo?.url || defaultPhotoUrl" class="profile-img">
               </div>
               <div class="text-container">
                 <p class="font-weight-bold text-break">{{ singleQuestion.questionText }}</p>

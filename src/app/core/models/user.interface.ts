@@ -1,4 +1,5 @@
 import { BffDetail } from './bff-detail.interface';
+import { Photo } from './photo.interface';
 import { Role } from './role.interface';
 
 export interface User {
@@ -7,8 +8,8 @@ export interface User {
   email: string;
   firstName: string;
   lastName: string;
-  photoUrl?: string;
   moodMessage?: string;
+  photo?: Photo;
   roles?: Role[];
   bffDetail?: BffDetail;
   followingCount?: number;
