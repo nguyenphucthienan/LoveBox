@@ -4,6 +4,7 @@ import { User } from 'src/app/core/models/user.interface';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { environment } from 'src/environments/environment';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -22,7 +23,12 @@ export class HeaderComponent implements OnInit {
     private alertService: AlertService) { }
 
   ngOnInit() {
-    this.authService.getMyUserInfo()
+    this.authService.decodedToken$
+      .pipe(
+        switchMap(
+          () => this.authService.getMyUserInfo()
+        )
+      )
       .subscribe((user: User) => this.user = user);
   }
 

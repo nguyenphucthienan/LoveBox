@@ -68,7 +68,7 @@ export class UserEditInfoComponent implements OnInit {
       containerClass: 'top',
       animated: true,
       data: {
-        title: 'Hotel Photo',
+        title: 'User Photo',
         uploadUrl: this.uploadUserPhotoUrl,
         photoUrl: this.myUser.photo && this.myUser.photo.url
       }

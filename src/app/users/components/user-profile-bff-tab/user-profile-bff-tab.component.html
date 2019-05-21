@@ -33,32 +33,37 @@
 </ng-container>
 <ng-container *ngIf="user.bffDetail">
   <app-user-profile-bff-overview [user]="user"></app-user-profile-bff-overview>
-  <hr>
-  <div *ngIf="myUser.id !==user.bffDetail.firstUser.id && myUser.id !==user.bffDetail.secondUser.id"
-    class="card mt-3 mb-3">
-    <div class="card-header indigo white-text py-2">
-    </div>
-    <div class="card-body">
-      <form [formGroup]="askForm" (ngSubmit)="sendQuestion()">
-        <div class="md-form">
-          <textarea type="text" id="text" formControlName="questionText"
-            class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
-          <label for="text">Ask something</label>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <strong>{{ getQuestionTextLength() }}</strong>
-          <div class="text-right">
-            <button mdbBtn type="submit" size="sm" color="pink" mdbWavesEffect [disabled]="askForm.invalid">
-              <mdb-icon far icon="paper-plane" class="mr-1"></mdb-icon>Ask
-            </button>
+  <ng-container *ngIf="myUser.id !==user.bffDetail.firstUser.id && myUser.id !==user.bffDetail.secondUser.id">
+    <hr>
+    <div class="card mt-3 mb-3">
+
+      <div class="card-header indigo white-text py-2">
+      </div>
+      <div class="card-body">
+        <form [formGroup]="askForm" (ngSubmit)="sendQuestion()">
+          <div class="md-form">
+            <textarea type="text" id="text" formControlName="questionText"
+              class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
+            <label for="text">Ask something</label>
           </div>
-        </div>
-      </form>
+          <div class="d-flex justify-content-between align-items-center">
+            <strong>{{ getQuestionTextLength() }}</strong>
+            <div class="text-right">
+              <button mdbBtn type="submit" size="sm" color="pink" mdbWavesEffect [disabled]="askForm.invalid">
+                <mdb-icon far icon="paper-plane" class="mr-1"></mdb-icon>Ask
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-  <hr>
+  </ng-container>
   <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="50"
     (scrolled)="onScrollDown()">
+    <hr>
+    <p *ngIf="coupleQuestions.length <= 0" class="font-weight-bold">
+      There is no question
+    </p>
     <app-couple-question-card *ngFor="let coupleQuestion of coupleQuestions" [user]="user"
       [coupleQuestion]="coupleQuestion">
     </app-couple-question-card>
