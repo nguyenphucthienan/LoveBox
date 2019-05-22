@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/core/models/user.interface';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { UserService } from 'src/app/core/services/user.service';
@@ -15,7 +15,6 @@ export class UserProfileComponent implements OnInit {
   user: User;
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
     private alertService: AlertService) { }
@@ -24,10 +23,6 @@ export class UserProfileComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.myUser = data.myUser;
       this.user = data.user;
-
-      if (this.myUser.id === this.user.id) {
-        this.router.navigate(['/users', 'me']);
-      }
     });
   }
 

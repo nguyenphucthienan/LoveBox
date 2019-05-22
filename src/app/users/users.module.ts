@@ -16,6 +16,7 @@ import {
   UserProfileQuestionsTabComponent,
 } from './components/user-profile-questions-tab/user-profile-questions-tab.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { CheckSelfUserGuard } from './guards/check-self-user.guard';
 import { BffRequestModalComponent } from './modals/bff-request-modal/bff-request-modal.component';
 import { BreakUpModalComponent } from './modals/break-up-modal/break-up-modal.component';
 import { UsersRoutingModule } from './users-routing.module';
@@ -39,6 +40,9 @@ import { UsersRoutingModule } from './users-routing.module';
   imports: [
     SharedModule,
     UsersRoutingModule
+  ],
+  providers: [
+    CheckSelfUserGuard
   ],
   entryComponents: [
     BffRequestModalComponent,

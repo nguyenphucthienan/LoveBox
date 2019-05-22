@@ -9,6 +9,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { SearchUserComponent } from './components/search-user/search-user.component';
 import { UserEditInfoComponent } from './components/user-edit-info/user-edit-info.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { CheckSelfUserGuard } from './guards/check-self-user.guard';
 
 const routes: Routes = [
   {
@@ -34,7 +35,7 @@ const routes: Routes = [
   {
     path: 'users/:id',
     component: UserProfileComponent,
-    canActivate: [AuthRoleGuard],
+    canActivate: [AuthRoleGuard, CheckSelfUserGuard],
     data: { roles: [RoleName.USER] },
     resolve: {
       myUser: MyUserResolver,
